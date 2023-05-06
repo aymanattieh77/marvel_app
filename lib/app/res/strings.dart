@@ -1,7 +1,7 @@
 abstract class AppStrings {
   // oboarding, signUp, and login strings
   static const String onBoardingTitle1 =
-      'All your favourite MARVEL Movies & Series at one place';
+      'All your favourite\nMARVEL Movies & Series\nat one place';
   static const String onBoardingTitle2 = 'Watch Online\nor\nDownload Offline';
   static const String onBoardingTitle3 =
       'Create profiles for diffrent members & get personalised recommendations';

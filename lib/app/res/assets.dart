@@ -10,6 +10,7 @@ abstract class AssetsImagePath {
   static const String onBorading4 = '${imagePath}on_boarding4.png';
   static const String onBorading5 = '${imagePath}on_boarding5.png';
   static const String onBorading6 = '${imagePath}on_boarding6.png';
+  static const String rectangle = '${imagePath}rectangle1.svg';
 }
 
 abstract class AssetsIconPath {

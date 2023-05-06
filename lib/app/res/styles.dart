@@ -48,6 +48,7 @@ abstract class AppStyles {
     color: AppColor.white,
     fontWeight: FontWeight.w600,
     fontSize: 20,
+    fontFamily: 'Inter',
   );
 
   static const textstyle23_78 = TextStyle(
