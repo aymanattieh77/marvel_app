@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:marvel_app/app/res/themes.dart';
-import 'package:marvel_app/presentaion/splash/splash_page.dart';
+import 'package:marvel_app/app/utils/app_router.dart';
 
 class MarvelApp extends StatelessWidget {
   const MarvelApp({super.key});
@@ -10,7 +10,7 @@ class MarvelApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: defaultTheme,
-      home: const SplashPage(),
+      onGenerateRoute: AppRouter.generateRoute,
     );
   }
 }
