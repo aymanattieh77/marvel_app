@@ -5,6 +5,8 @@ abstract class AppColor {
   static const Color redO50 = Color(0x80ED1B24);
 
   static const Color black = Color(0xff000000);
+  static const Color black50 = Color(0x80000000);
+  static const Color black70 = Color(0xB3000000);
   static const Color white = Color(0xffFFFFFF);
   // white colors with obacity (num)%
   static const Color white15 = Color(0x26FFFFFF);
