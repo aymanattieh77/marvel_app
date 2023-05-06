@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:marvel_app/app/res/colors.dart';
 import 'package:marvel_app/app/res/strings.dart';
+import 'package:marvel_app/app/res/values.dart';
 import 'package:marvel_app/presentaion/common/widgets/custom_elevated_button.dart';
 import 'package:marvel_app/presentaion/on_borading/on_Boarding_dummy.dart';
 import 'package:marvel_app/presentaion/on_borading/onboarding_stack_widget.dart';
@@ -43,6 +44,8 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                 ),
                 AnimatedContainer(
                   duration: const Duration(milliseconds: 200),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: AppPadding.p30),
                   height: isEndPage ? 0 : 50,
                   margin: const EdgeInsets.only(bottom: 70),
                   child: CustomElevatedButton(

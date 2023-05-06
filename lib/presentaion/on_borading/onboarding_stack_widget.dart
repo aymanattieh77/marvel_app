@@ -4,6 +4,7 @@ import 'package:marvel_app/app/res/assets.dart';
 import 'package:marvel_app/app/res/colors.dart';
 import 'package:marvel_app/app/res/strings.dart';
 import 'package:marvel_app/app/res/styles.dart';
+import 'package:marvel_app/app/res/values.dart';
 import 'package:marvel_app/app/utils/app_router.dart';
 import 'package:marvel_app/presentaion/common/widgets/custom_elevated_button.dart';
 
@@ -46,6 +47,7 @@ class OnBoradingStackWidget extends StatelessWidget {
               const SizedBox(height: 80),
               AnimatedContainer(
                 duration: const Duration(milliseconds: 200),
+                padding: const EdgeInsets.symmetric(horizontal: AppPadding.p30),
                 height: isEndPage ? 50 : 0,
                 child: CustomElevatedButton(
                   color: AppColor.red,
@@ -60,6 +62,7 @@ class OnBoradingStackWidget extends StatelessWidget {
               const SizedBox(height: 30),
               AnimatedContainer(
                 duration: const Duration(milliseconds: 200),
+                padding: const EdgeInsets.symmetric(horizontal: AppPadding.p30),
                 height: isEndPage ? 50 : 0,
                 child: CustomElevatedButton(
                   color: AppColor.black,

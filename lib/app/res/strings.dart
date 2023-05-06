@@ -15,8 +15,8 @@ abstract class AppStrings {
   static const String forgotPassword = 'Forgot Password?';
   static const String or = 'or';
   static const String continueWith = 'Continue With';
-  static const String alreadyHaveAccount = 'Already have an account';
-  static const String dontHaveAccount = 'Don’t have an account';
+  static const String alreadyHaveAccount = 'Already have an account? ';
+  static const String dontHaveAccount = 'Don’t have an account? ';
   static const String show = 'Show';
   static const String password = 'Password';
   static const String emailID = 'Enter your Email ID';

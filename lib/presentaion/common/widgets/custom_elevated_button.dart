@@ -18,18 +18,15 @@ class CustomElevatedButton extends StatelessWidget {
     return SizedBox(
       height: 50,
       width: double.infinity,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: AppPadding.p30),
-        child: ElevatedButton(
-          style: ElevatedButton.styleFrom(
-              backgroundColor: color,
-              shape: const RoundedRectangleBorder(
-                  side: BorderSide(color: AppColor.red))),
-          onPressed: press,
-          child: Text(
-            title,
-            style: AppStyles.textstyle18_38,
-          ),
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+            backgroundColor: color,
+            shape: const RoundedRectangleBorder(
+                side: BorderSide(color: AppColor.red))),
+        onPressed: press,
+        child: Text(
+          title,
+          style: AppStyles.textstyle18_38,
         ),
       ),
     );
