@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:marvel_app/app/res/colors.dart';
 import 'package:marvel_app/app/res/strings.dart';
@@ -49,11 +47,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                   margin: const EdgeInsets.only(bottom: 70),
                   child: CustomElevatedButton(
                     color: AppColor.red,
-                    press: () {
-                      controller.animateToPage(controller.page!.toInt() + 1,
-                          duration: const Duration(milliseconds: 200),
-                          curve: Curves.linear);
-                    },
+                    press: _goNextPage,
                     title: AppStrings.continue_,
                   ),
                 ),
@@ -63,6 +57,11 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
         ],
       ),
     );
+  }
+
+  void _goNextPage() {
+    controller.animateToPage(controller.page!.toInt() + 1,
+        duration: const Duration(milliseconds: 200), curve: Curves.linear);
   }
 
   PageView _onboardingPageView() {

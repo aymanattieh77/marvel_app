@@ -4,6 +4,7 @@ import 'package:marvel_app/app/res/assets.dart';
 import 'package:marvel_app/app/res/colors.dart';
 import 'package:marvel_app/app/res/strings.dart';
 import 'package:marvel_app/app/res/styles.dart';
+import 'package:marvel_app/app/utils/app_router.dart';
 import 'package:marvel_app/presentaion/common/widgets/custom_elevated_button.dart';
 
 class OnBoradingStackWidget extends StatelessWidget {
@@ -48,7 +49,11 @@ class OnBoradingStackWidget extends StatelessWidget {
                 height: isEndPage ? 50 : 0,
                 child: CustomElevatedButton(
                   color: AppColor.red,
-                  press: () {},
+                  press: () {
+                    // navigate to sign up page
+                    Navigator.of(context)
+                        .pushReplacementNamed(AppRouter.signUp);
+                  },
                   title: AppStrings.signup,
                 ),
               ),
@@ -58,7 +63,10 @@ class OnBoradingStackWidget extends StatelessWidget {
                 height: isEndPage ? 50 : 0,
                 child: CustomElevatedButton(
                   color: AppColor.black,
-                  press: () {},
+                  press: () {
+                    // navigate to login page
+                    Navigator.of(context).pushReplacementNamed(AppRouter.login);
+                  },
                   title: AppStrings.login,
                 ),
               ),
