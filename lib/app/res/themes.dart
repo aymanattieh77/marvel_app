@@ -10,7 +10,7 @@ final defaultTheme = ThemeData(
   dividerColor: Colors.grey,
   fontFamily: 'Inter',
   bottomNavigationBarTheme: BottomNavigationBarThemeData(
-    backgroundColor: Colors.transparent,
+    backgroundColor: AppColor.black70,
     type: BottomNavigationBarType.fixed,
     selectedItemColor: AppColor.red,
     unselectedItemColor: AppColor.white,

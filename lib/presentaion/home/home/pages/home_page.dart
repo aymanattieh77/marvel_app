@@ -47,11 +47,12 @@ class HomePage extends StatelessWidget {
                     style: AppStyles.textstyle24),
               ),
               SizedBox(height: 14),
+              TrendingTodaySection(),
+              SizedBox(height: 14),
+              TrendingTodaySection(),
+              SizedBox(height: 66),
             ],
           ),
-        ),
-        SliverFillRemaining(
-          child: TrendingTodaySection(),
         ),
       ],
     );

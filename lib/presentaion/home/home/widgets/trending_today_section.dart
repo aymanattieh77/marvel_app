@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:marvel_app/app/res/assets.dart';
-import 'package:marvel_app/app/res/strings.dart';
-import 'package:marvel_app/app/res/styles.dart';
 
 class TrendingTodaySection extends StatelessWidget {
   const TrendingTodaySection({
@@ -10,27 +8,25 @@ class TrendingTodaySection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 16),
-      child: GridView.builder(
-        padding: EdgeInsets.zero,
-        physics: const NeverScrollableScrollPhysics(),
+    return SizedBox(
+      height: MediaQuery.of(context).size.height * .25,
+      child: ListView.separated(
+        padding: const EdgeInsets.only(left: 16),
+        physics: const BouncingScrollPhysics(),
+        scrollDirection: Axis.horizontal,
         itemCount: 10,
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 3,
-          crossAxisSpacing: 12.0,
-          mainAxisSpacing: 12.0,
-        ),
         itemBuilder: (context, index) {
-          return SizedBox(
-            height: 150,
-            width: 100,
-            child: Image.asset(
-              AssetsImagePath.rectTest1,
-              fit: BoxFit.fill,
+          return AspectRatio(
+            aspectRatio: 2 / 3,
+            child: SizedBox(
+              child: Image.asset(
+                AssetsImagePath.rectTest1,
+                fit: BoxFit.fill,
+              ),
             ),
           );
         },
+        separatorBuilder: (context, index) => const SizedBox(width: 12),
       ),
     );
   }

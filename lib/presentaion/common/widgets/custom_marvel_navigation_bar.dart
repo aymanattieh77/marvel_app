@@ -7,6 +7,7 @@ import 'package:marvel_app/app/res/colors.dart';
 import 'package:marvel_app/app/res/strings.dart';
 
 import 'package:marvel_app/app/res/values.dart';
+import 'package:marvel_app/presentaion/common/widgets/blur.dart';
 
 class CustomMarvelNavigationBar extends StatelessWidget {
   const CustomMarvelNavigationBar({
@@ -15,41 +16,50 @@ class CustomMarvelNavigationBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BottomNavigationBar(
-      items: [
-        BottomNavigationBarItem(
-          icon: SvgPicture.asset(AssetsIconPath.home),
-          activeIcon: SvgPicture.asset(
-            AssetsIconPath.home,
-            colorFilter: const ColorFilter.mode(AppColor.red, BlendMode.srcIn),
+    return Blur(
+      colorOpacity: 0.2,
+      blurColor: Colors.transparent,
+      blur: 5,
+      child: BottomNavigationBar(
+        items: [
+          BottomNavigationBarItem(
+            icon: SvgPicture.asset(AssetsIconPath.home),
+            activeIcon: SvgPicture.asset(
+              AssetsIconPath.home,
+              colorFilter:
+                  const ColorFilter.mode(AppColor.red, BlendMode.srcIn),
+            ),
+            label: AppStrings.home,
           ),
-          label: AppStrings.home,
-        ),
-        BottomNavigationBarItem(
-          icon: SvgPicture.asset(AssetsIconPath.note),
-          activeIcon: SvgPicture.asset(
-            AssetsIconPath.note,
-            colorFilter: const ColorFilter.mode(AppColor.red, BlendMode.srcIn),
+          BottomNavigationBarItem(
+            icon: SvgPicture.asset(AssetsIconPath.note),
+            activeIcon: SvgPicture.asset(
+              AssetsIconPath.note,
+              colorFilter:
+                  const ColorFilter.mode(AppColor.red, BlendMode.srcIn),
+            ),
+            label: AppStrings.categories,
           ),
-          label: AppStrings.categories,
-        ),
-        BottomNavigationBarItem(
-          icon: SvgPicture.asset(AssetsIconPath.frame),
-          activeIcon: SvgPicture.asset(
-            AssetsIconPath.frame,
-            colorFilter: const ColorFilter.mode(AppColor.red, BlendMode.srcIn),
+          BottomNavigationBarItem(
+            icon: SvgPicture.asset(AssetsIconPath.frame),
+            activeIcon: SvgPicture.asset(
+              AssetsIconPath.frame,
+              colorFilter:
+                  const ColorFilter.mode(AppColor.red, BlendMode.srcIn),
+            ),
+            label: AppStrings.downloads,
           ),
-          label: AppStrings.downloads,
-        ),
-        BottomNavigationBarItem(
-          icon: SvgPicture.asset(AssetsIconPath.elementPlus),
-          activeIcon: SvgPicture.asset(
-            AssetsIconPath.elementPlus,
-            colorFilter: const ColorFilter.mode(AppColor.red, BlendMode.srcIn),
+          BottomNavigationBarItem(
+            icon: SvgPicture.asset(AssetsIconPath.elementPlus),
+            activeIcon: SvgPicture.asset(
+              AssetsIconPath.elementPlus,
+              colorFilter:
+                  const ColorFilter.mode(AppColor.red, BlendMode.srcIn),
+            ),
+            label: AppStrings.more,
           ),
-          label: AppStrings.more,
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

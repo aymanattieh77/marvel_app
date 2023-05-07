@@ -13,11 +13,11 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: SafeArea(
         child: HomePage(),
       ),
-      floatingActionButton: const CustomMarvelNavigationBar(),
+      floatingActionButton: CustomMarvelNavigationBar(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
