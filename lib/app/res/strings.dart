@@ -77,6 +77,8 @@ abstract class AppStrings {
   static const String lastetMovies = 'Latest Movies';
   static const String lastetSeries = 'Latest Series';
   static const String trendingToday = 'Trending Today';
+  static const String oldMovies = 'Old Movies';
+  static const String oldSeries = 'Old Series';
   static const String home = 'Home';
   static const String categories = 'Categories';
   static const String downloads = 'Downloads';

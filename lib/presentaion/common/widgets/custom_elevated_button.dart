@@ -27,6 +27,7 @@ class CustomElevatedButton extends StatelessWidget {
         child: Text(
           title,
           style: AppStyles.textstyle18_38,
+          maxLines: 1,
         ),
       ),
     );

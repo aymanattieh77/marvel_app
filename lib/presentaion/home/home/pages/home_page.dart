@@ -48,7 +48,20 @@ class HomePage extends StatelessWidget {
               ),
               SizedBox(height: 14),
               TrendingTodayListView(),
-
+              SizedBox(height: 24),
+              Padding(
+                padding: EdgeInsets.only(left: 12),
+                child: Text(AppStrings.oldMovies, style: AppStyles.textstyle24),
+              ),
+              SizedBox(height: 14),
+              TrendingTodayListView(),
+              SizedBox(height: 24),
+              Padding(
+                padding: EdgeInsets.only(left: 12),
+                child: Text(AppStrings.oldSeries, style: AppStyles.textstyle24),
+              ),
+              SizedBox(height: 14),
+              TrendingTodayListView(),
               SizedBox(height: 66),
             ],
           ),
