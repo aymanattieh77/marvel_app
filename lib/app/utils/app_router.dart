@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:marvel_app/presentaion/home/home/pages/movie_page.dart';
+import 'package:marvel_app/presentaion/home/home/pages/detail_page.dart';
 import 'package:marvel_app/presentaion/home/home_screen.dart';
 import 'package:marvel_app/presentaion/on_borading/on_borading_screen.dart';
 import 'package:marvel_app/presentaion/sign_up_login/pages/login_screen.dart';
@@ -26,7 +26,7 @@ class AppRouter {
       case AppRouter.home:
         return MaterialPageRoute(builder: (ctx) => const HomeScreen());
       case AppRouter.moviePage:
-        return MaterialPageRoute(builder: (ctx) => const MoviePage());
+        return MaterialPageRoute(builder: (ctx) => const DetailPage());
       default:
         return unknownFoundPage();
     }
