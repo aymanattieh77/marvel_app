@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:marvel_app/app/res/assets.dart';
 import 'package:marvel_app/app/res/colors.dart';
 import 'package:marvel_app/app/res/strings.dart';
 import 'package:marvel_app/app/res/values.dart';
@@ -14,9 +16,26 @@ class OnBoardingScreen extends StatefulWidget {
   State<OnBoardingScreen> createState() => _OnBoardingScreenState();
 }
 
-class _OnBoardingScreenState extends State<OnBoardingScreen> {
+class _OnBoardingScreenState extends State<OnBoardingScreen>
+    with SingleTickerProviderStateMixin {
   final controller = PageController();
   bool isEndPage = false;
+  late AnimationController _animationController;
+  late Animation<Offset> _animation;
+  @override
+  void initState() {
+    super.initState();
+    _animationController = AnimationController(
+        vsync: this, duration: const Duration(milliseconds: 300));
+    _animation =
+        Tween<Offset>(begin: const Offset(0, 300), end: const Offset(0, 220))
+            .animate(_animationController);
+    _startAnimation();
+  }
+
+  _startAnimation() {
+    _animationController.forward();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +47,8 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               alignment: AlignmentDirectional.bottomCenter,
               children: [
                 _onboardingPageView(),
-                Center(
+                Positioned(
+                  top: MediaQuery.of(context).size.height * 0.52,
                   child: Container(
                     margin: const EdgeInsets.only(bottom: 70),
                     child: SmoothPageIndicator(
@@ -54,6 +74,18 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                     title: AppStrings.continue_,
                   ),
                 ),
+                AnimatedBuilder(
+                    animation: _animation,
+                    builder: (context, _) {
+                      return AnimatedPositioned(
+                        duration: const Duration(milliseconds: 300),
+                        top: _animation.value.dy,
+                        child: Hero(
+                          tag: 'marvelLogo_',
+                          child: SvgPicture.asset(AssetsIconPath.marvelLogo),
+                        ),
+                      );
+                    }),
               ],
             ),
           ),
@@ -92,5 +124,11 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
         isEndPage = false;
       });
     }
+  }
+
+  @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
   }
 }

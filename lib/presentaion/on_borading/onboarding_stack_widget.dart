@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:marvel_app/app/res/assets.dart';
+
 import 'package:marvel_app/app/res/colors.dart';
 import 'package:marvel_app/app/res/strings.dart';
 import 'package:marvel_app/app/res/styles.dart';
@@ -32,19 +31,19 @@ class OnBoradingStackWidget extends StatelessWidget {
             fit: BoxFit.cover,
           ),
         ),
+        Positioned(
+          top: MediaQuery.of(context).size.height * 0.6,
+          child: Text(
+            title,
+            style: AppStyles.textStyle20,
+            textAlign: TextAlign.center,
+          ),
+        ),
         Center(
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              SvgPicture.asset(AssetsIconPath.marvelLogo),
-              const SizedBox(height: 50),
-              const SizedBox(height: 50),
-              Text(
-                title,
-                style: AppStyles.textStyle20,
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: 80),
+              const SizedBox(height: 250),
               AnimatedContainer(
                 duration: const Duration(milliseconds: 200),
                 padding: const EdgeInsets.symmetric(horizontal: AppPadding.p30),
