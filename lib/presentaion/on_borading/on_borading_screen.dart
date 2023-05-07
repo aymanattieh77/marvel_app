@@ -26,7 +26,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen>
   void initState() {
     super.initState();
     _animationController = AnimationController(
-        vsync: this, duration: const Duration(milliseconds: 300));
+        vsync: this, duration: const Duration(milliseconds: 600));
     _animation =
         Tween<Offset>(begin: const Offset(0, 300), end: const Offset(0, 220))
             .animate(_animationController);
@@ -78,7 +78,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen>
                     animation: _animation,
                     builder: (context, _) {
                       return AnimatedPositioned(
-                        duration: const Duration(milliseconds: 300),
+                        duration: const Duration(milliseconds: 600),
                         top: _animation.value.dy,
                         child: Hero(
                           tag: 'marvelLogo_',
