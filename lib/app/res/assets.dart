@@ -17,6 +17,7 @@ abstract class AssetsImagePath {
 
 abstract class AssetsIconPath {
   static const String arrowCircleRight = '${iconPath}arrow_circle_right.svg';
+  static const String back = '${iconPath}back.svg';
   static const String delete = '${iconPath}delete.svg';
   static const String facebook = '${iconPath}facebook.svg';
   static const String google = '${iconPath}google.svg';

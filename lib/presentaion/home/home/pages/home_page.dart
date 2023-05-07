@@ -4,9 +4,9 @@ import 'package:marvel_app/app/res/assets.dart';
 import 'package:marvel_app/app/res/strings.dart';
 import 'package:marvel_app/app/res/styles.dart';
 import 'package:marvel_app/presentaion/home/home/widgets/custom_home_appbar.dart';
-import 'package:marvel_app/presentaion/home/home/widgets/trending_today_section.dart';
+import 'package:marvel_app/presentaion/home/home/widgets/trending_today_listview.dart';
 
-import '../widgets/lastet_movies_series_section.dart';
+import '../widgets/lastet_movies_series_listview.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -30,7 +30,7 @@ class HomePage extends StatelessWidget {
               ),
               SizedBox(height: 10),
               // lastet movies section
-              LastetMoviesSeriesSection(image: AssetsImagePath.cardTest),
+              LastetMoviesSeriesListView(image: AssetsImagePath.cardTest),
               SizedBox(height: 24),
               Padding(
                 padding: EdgeInsets.only(left: 12),
@@ -39,7 +39,7 @@ class HomePage extends StatelessWidget {
               ),
               SizedBox(height: 10),
               // lastet series section
-              LastetMoviesSeriesSection(image: AssetsImagePath.cardTest2),
+              LastetMoviesSeriesListView(image: AssetsImagePath.cardTest2),
               SizedBox(height: 24),
               Padding(
                 padding: EdgeInsets.only(left: 12),
@@ -47,9 +47,8 @@ class HomePage extends StatelessWidget {
                     style: AppStyles.textstyle24),
               ),
               SizedBox(height: 14),
-              TrendingTodaySection(),
-              SizedBox(height: 14),
-              TrendingTodaySection(),
+              TrendingTodayListView(),
+
               SizedBox(height: 66),
             ],
           ),
