@@ -7,14 +7,14 @@ import 'package:marvel_app/presentaion/on_borading/on_Boarding_dummy.dart';
 import 'package:marvel_app/presentaion/on_borading/onboarding_stack_widget.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-class OnBoardingPage extends StatefulWidget {
-  const OnBoardingPage({super.key});
+class OnBoardingScreen extends StatefulWidget {
+  const OnBoardingScreen({super.key});
 
   @override
-  State<OnBoardingPage> createState() => _OnBoardingPageState();
+  State<OnBoardingScreen> createState() => _OnBoardingScreenState();
 }
 
-class _OnBoardingPageState extends State<OnBoardingPage> {
+class _OnBoardingScreenState extends State<OnBoardingScreen> {
   final controller = PageController();
   bool isEndPage = false;
 

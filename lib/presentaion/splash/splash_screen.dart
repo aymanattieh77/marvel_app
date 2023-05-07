@@ -6,14 +6,14 @@ import 'package:marvel_app/app/res/assets.dart';
 import 'package:marvel_app/app/utils/app_router.dart';
 import 'package:marvel_app/app/utils/constants.dart';
 
-class SplashPage extends StatefulWidget {
-  const SplashPage({super.key});
+class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
 
   @override
-  State<SplashPage> createState() => _SplashPageState();
+  State<SplashScreen> createState() => _SplashScreenState();
 }
 
-class _SplashPageState extends State<SplashPage> {
+class _SplashScreenState extends State<SplashScreen> {
   Timer? timer;
 
   @override

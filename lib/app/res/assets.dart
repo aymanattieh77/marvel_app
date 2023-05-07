@@ -20,6 +20,7 @@ abstract class AssetsIconPath {
   static const String elementPlus = '${iconPath}element_plus.svg';
   static const String frame = '${iconPath}frame.svg';
   static const String home2 = '${iconPath}home2.svg';
+  static const String home = '${iconPath}home.svg';
   static const String marvelLogo = '${iconPath}marvel_logo.svg';
   static const String note = '${iconPath}note.svg';
   static const String mastercard = '${iconPath}mastercard.svg';
