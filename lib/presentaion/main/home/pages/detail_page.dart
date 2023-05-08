@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+
 import 'package:marvel_app/app/res/colors.dart';
 import 'package:marvel_app/app/res/strings.dart';
 import 'package:marvel_app/app/res/styles.dart';
 import 'package:marvel_app/app/res/values.dart';
+import 'package:marvel_app/presentaion/main/home/widgets/detail/cast_movie_series_listview.dart';
 import 'package:marvel_app/presentaion/main/home/widgets/detail/download_watchlist_section.dart';
+import 'package:marvel_app/presentaion/main/home/widgets/detail/more_movie_series_listview.dart';
+import 'package:marvel_app/presentaion/main/home/widgets/detail/trailer_movie_series_card.dart';
 
 import '../widgets/detail/card_details_section.dart';
 
@@ -15,6 +19,8 @@ class DetailPage extends StatefulWidget {
 }
 
 class _DetailPageState extends State<DetailPage> {
+  int currnetTab = 0;
+
   @override
   Widget build(BuildContext context) {
     final data =
@@ -46,7 +52,9 @@ class _DetailPageState extends State<DetailPage> {
                   color: AppColor.white15,
                   child: TabBar(
                     onTap: (value) {
-                      print(value);
+                      setState(() {
+                        currnetTab = value;
+                      });
                     },
                     indicatorColor: AppColor.red,
                     labelStyle: AppStyles.textstyle16,
@@ -54,7 +62,7 @@ class _DetailPageState extends State<DetailPage> {
                     unselectedLabelColor: AppColor.white,
                     // dividerColor: Colors.grey,
 
-                    tabs: [
+                    tabs: const [
                       Tab(
                         text: AppStrings.trailer,
                       ),
@@ -68,11 +76,23 @@ class _DetailPageState extends State<DetailPage> {
                   ),
                 ),
                 const SizedBox(height: AppSizes.s16),
+                _tabManager(currnetTab),
+                const SizedBox(height: 150),
               ],
             ),
           ),
         ),
       ),
     );
+  }
+
+  Widget _tabManager(int tab) {
+    if (tab == 1) {
+      return const CastMovieSeriesListview();
+    } else if (tab == 2) {
+      return const MoreMovieSeriesListview();
+    } else {
+      return const TrailerMovieSeriesCard();
+    }
   }
 }

@@ -14,6 +14,8 @@ abstract class AssetsImagePath {
   static const String cardTest2 = '${imagePath}card_test2.png';
   static const String rectTest1 = '${imagePath}rect_test1.png';
   static const String moreTest = '${imagePath}more_test.png';
+  static const String castTest = '${imagePath}cast_test.png';
+  static const String trTest = '${imagePath}tr_test.jpg';
 }
 
 abstract class AssetsIconPath {
