@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:marvel_app/app/res/assets.dart';
 import 'package:marvel_app/app/res/colors.dart';
-import 'package:marvel_app/app/res/values.dart';
 import 'package:marvel_app/app/utils/functions.dart';
 
 class TrailerMovieSeriesCard extends StatelessWidget {
