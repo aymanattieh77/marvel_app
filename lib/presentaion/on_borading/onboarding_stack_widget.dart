@@ -55,7 +55,7 @@ class OnBoradingStackWidget extends StatelessWidget {
                   press: () {
                     // navigate to sign up page
                     Navigator.of(context)
-                        .pushReplacementNamed(AppRouter.signUp);
+                        .pushReplacementNamed(AppRouter.loginSignUp);
                   },
                   title: AppStrings.signup,
                 ),
@@ -70,7 +70,8 @@ class OnBoradingStackWidget extends StatelessWidget {
                   color: AppColor.black,
                   press: () {
                     // navigate to login page
-                    Navigator.of(context).pushReplacementNamed(AppRouter.login);
+                    Navigator.of(context)
+                        .pushReplacementNamed(AppRouter.loginSignUp);
                   },
                   title: AppStrings.login,
                 ),

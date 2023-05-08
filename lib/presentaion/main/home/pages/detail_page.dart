@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:marvel_app/app/res/colors.dart';
 import 'package:marvel_app/app/res/strings.dart';
 import 'package:marvel_app/app/res/styles.dart';
+import 'package:marvel_app/app/res/values.dart';
 import 'package:marvel_app/presentaion/main/home/widgets/detail/download_watchlist_section.dart';
 
 import '../widgets/detail/card_details_section.dart';
@@ -26,12 +27,13 @@ class _DetailPageState extends State<DetailPage> {
             child: Column(
               children: [
                 const CardDetailsSection(),
-                const SizedBox(height: 20),
+                const SizedBox(height: AppSizes.s20),
                 const DownloadWatchListSection(),
-                const SizedBox(height: 16),
+                const SizedBox(height: AppSizes.s16),
                 Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
-                  height: 150,
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: AppPadding.p16),
+                  height: AppSizes.s150,
                   child: Text(
                     data,
                     style: AppStyles.textstyle14.copyWith(
@@ -39,10 +41,13 @@ class _DetailPageState extends State<DetailPage> {
                     softWrap: true,
                   ),
                 ),
-                const SizedBox(height: 16),
+                const SizedBox(height: AppSizes.s16),
                 Container(
                   color: AppColor.white15,
-                  child: const TabBar(
+                  child: TabBar(
+                    onTap: (value) {
+                      print(value);
+                    },
                     indicatorColor: AppColor.red,
                     labelStyle: AppStyles.textstyle16,
                     unselectedLabelStyle: AppStyles.textstyle16,
@@ -62,7 +67,7 @@ class _DetailPageState extends State<DetailPage> {
                     ],
                   ),
                 ),
-                const SizedBox(height: 16),
+                const SizedBox(height: AppSizes.s16),
               ],
             ),
           ),
@@ -71,41 +76,3 @@ class _DetailPageState extends State<DetailPage> {
     );
   }
 }
-
-//  Row(
-//                   children: [
-//                     Expanded(
-//                       child: Container(
-//                         padding: const EdgeInsets.symmetric(
-//                             horizontal: 34, vertical: 8.0),
-//                         color: AppColor.white15,
-//                         child: const Text(
-//                           AppStrings.cast,
-//                           style: AppStyles.textstyle16,
-//                         ),
-//                       ),
-//                     ),
-//                     Expanded(
-//                       child: Container(
-//                         padding: const EdgeInsets.symmetric(
-//                             horizontal: 34, vertical: 8.0),
-//                         color: AppColor.white15,
-//                         child: const Text(
-//                           AppStrings.trailer,
-//                           style: AppStyles.textstyle16,
-//                         ),
-//                       ),
-//                     ),
-//                     Expanded(
-//                       child: Container(
-//                         padding: const EdgeInsets.symmetric(
-//                             horizontal: 34, vertical: 8.0),
-//                         color: AppColor.white15,
-//                         child: const Text(
-//                           AppStrings.more,
-//                           style: AppStyles.textstyle16,
-//                         ),
-//                       ),
-//                     ),
-//                   ],
-//                 )

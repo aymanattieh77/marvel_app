@@ -2,15 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:marvel_app/presentaion/main/home/pages/detail_page.dart';
 import 'package:marvel_app/presentaion/main/home_screen.dart';
 import 'package:marvel_app/presentaion/on_borading/on_borading_screen.dart';
-import 'package:marvel_app/presentaion/sign_up_login/pages/login_screen.dart';
-import 'package:marvel_app/presentaion/sign_up_login/pages/sign_up_screen.dart';
+
+import 'package:marvel_app/presentaion/sign_up_login/pages/login_signup_page.dart';
+
 import 'package:marvel_app/presentaion/splash/splash_screen.dart';
 
 class AppRouter {
   static const splash = '/';
   static const onBorading = '/on_boarding';
   static const signUp = '/sign_up';
-  static const login = '/login_';
+  static const loginSignUp = '/login_signup';
   static const home = '/home_';
   static const moviePage = '/movie_page';
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -19,10 +20,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (ctx) => const SplashScreen());
       case AppRouter.onBorading:
         return MaterialPageRoute(builder: (ctx) => const OnBoardingScreen());
-      case AppRouter.signUp:
-        return MaterialPageRoute(builder: (ctx) => const SignUpScreen());
-      case AppRouter.login:
-        return MaterialPageRoute(builder: (ctx) => const LoginScreen());
+      case AppRouter.loginSignUp:
+        return MaterialPageRoute(builder: (ctx) => const LoginSignUpPage());
       case AppRouter.home:
         return MaterialPageRoute(builder: (ctx) => const HomeScreen());
       case AppRouter.moviePage:
