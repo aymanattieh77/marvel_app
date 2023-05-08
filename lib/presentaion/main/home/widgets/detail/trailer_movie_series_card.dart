@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:marvel_app/app/res/assets.dart';
 import 'package:marvel_app/app/res/colors.dart';
 import 'package:marvel_app/app/res/values.dart';
@@ -18,16 +19,16 @@ class TrailerMovieSeriesCard extends StatelessWidget {
             aspectRatio: 4 / 2,
             child: Image.asset(AssetsImagePath.trTest),
           ),
-          IconButton(
-            onPressed: () {
+          GestureDetector(
+            onTap: () {
               _openMovieTrailer(context);
             },
-            icon: const Icon(
-              Icons.play_circle,
-              color: AppColor.white,
-              size: AppSizes.s45,
+            child: SvgPicture.asset(
+              AssetsIconPath.arrowCircleRight,
+              colorFilter:
+                  const ColorFilter.mode(AppColor.white, BlendMode.srcIn),
             ),
-          )
+          ),
         ],
       ),
     );
