@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:marvel_app/presentaion/main/home/pages/detail_page.dart';
 import 'package:marvel_app/presentaion/main/home_screen.dart';
+import 'package:marvel_app/presentaion/main/more/pages/account_page.dart';
+import 'package:marvel_app/presentaion/main/more/pages/setting_page.dart';
 import 'package:marvel_app/presentaion/on_borading/on_borading_screen.dart';
 
 import 'package:marvel_app/presentaion/sign_up_login/pages/login_signup_page.dart';
@@ -14,6 +16,9 @@ class AppRouter {
   static const loginSignUp = '/login_signup';
   static const home = '/home_';
   static const moviePage = '/movie_page';
+  static const accountPage = '/account_page';
+  static const settingPage = '/setting_page';
+
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case AppRouter.splash:
@@ -26,6 +31,10 @@ class AppRouter {
         return MaterialPageRoute(builder: (ctx) => const HomeScreen());
       case AppRouter.moviePage:
         return MaterialPageRoute(builder: (ctx) => const DetailPage());
+      case AppRouter.settingPage:
+        return MaterialPageRoute(builder: (ctx) => const SettingPage());
+      case AppRouter.accountPage:
+        return MaterialPageRoute(builder: (ctx) => const AccountPage());
       default:
         return unknownFoundPage();
     }

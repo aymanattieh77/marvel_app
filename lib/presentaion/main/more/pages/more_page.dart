@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:marvel_app/app/res/strings.dart';
 import 'package:marvel_app/app/res/styles.dart';
 import 'package:marvel_app/app/res/values.dart';
+import 'package:marvel_app/app/utils/app_router.dart';
 import 'package:marvel_app/presentaion/main/more/widgets/list_tile_settings.dart';
 
 class MorePage extends StatelessWidget {
@@ -28,8 +29,18 @@ class MorePage extends StatelessWidget {
             ),
           ),
           const SizedBox(height: AppSizes.s26),
-          ListTileSettings(title: AppStrings.account, press: () {}),
-          ListTileSettings(title: AppStrings.settings, press: () {}),
+          ListTileSettings(
+            title: AppStrings.account,
+            press: () {
+              Navigator.of(context).pushNamed(AppRouter.accountPage);
+            },
+          ),
+          ListTileSettings(
+            title: AppStrings.settings,
+            press: () {
+              Navigator.of(context).pushNamed(AppRouter.settingPage);
+            },
+          ),
           ListTileSettings(title: AppStrings.legal, press: () {}),
           ListTileSettings(title: AppStrings.support, press: () {}),
           ListTileSettings(title: AppStrings.privacySettings, press: () {}),
