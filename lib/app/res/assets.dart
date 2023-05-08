@@ -33,6 +33,7 @@ abstract class AssetsIconPath {
   static const String note = '${iconPath}note.svg';
   static const String mastercard = '${iconPath}mastercard.svg';
   static const String tickCircle = '${iconPath}tick_circle.svg';
+  static const String arrowRight = '${iconPath}right_arrow.svg';
   // avatars icons
   static const String avatar1 = '${avatarPath}avatar1.svg';
   static const String avatar2 = '${avatarPath}avatar2.svg';
