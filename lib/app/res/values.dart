@@ -9,6 +9,7 @@ abstract class AppPadding {
 
 abstract class AppSizes {
   static const double s0 = 0.0;
+  static const double s10 = 10.0;
   static const double s12 = 12.0;
   static const double s24 = 12.0;
   static const double s30 = 30.0;
