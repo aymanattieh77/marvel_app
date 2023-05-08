@@ -80,10 +80,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen>
                       return AnimatedPositioned(
                         duration: const Duration(milliseconds: 600),
                         top: _animation.value.dy,
-                        child: Hero(
-                          tag: 'marvelLogo_',
-                          child: SvgPicture.asset(AssetsIconPath.marvelLogo),
-                        ),
+                        child: SvgPicture.asset(AssetsIconPath.marvelLogo),
                       );
                     }),
               ],

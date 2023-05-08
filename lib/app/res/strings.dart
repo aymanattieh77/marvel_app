@@ -4,10 +4,10 @@ abstract class AppStrings {
       'All your favourite\nMARVEL Movies & Series\nat one place';
   static const String onBoardingTitle2 = 'Watch Online\nor\nDownload Offline';
   static const String onBoardingTitle3 =
-      'Create profiles for diffrent members & get personalised recommendations';
+      'Create profiles for\ndiffrent members &\nget personalised\nrecommendations';
 
   static const String onBoardingTitle4 =
-      'Plans according to your needs at affordable prices';
+      'Plans according to your\nneeds at affordable\nprices';
   static const String onBoardingTitle5 = 'Let’s Get Started !!!';
   static const String continue_ = 'Continue';
   static const String signup = 'Signup';

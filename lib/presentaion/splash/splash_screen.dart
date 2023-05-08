@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:ffi';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -17,33 +16,15 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen>
     with SingleTickerProviderStateMixin {
-  Timer? timer;
+  late Timer timer;
   late AnimationController _animationController;
   late Animation<double> _animation;
-  double scale = 1.0;
+
   @override
   void initState() {
     super.initState();
-
-    timer =
-        Timer(const Duration(seconds: AppConstants.splashDurationSec), goNext);
-    _animationController = AnimationController(
-        vsync: this, duration: const Duration(milliseconds: 300));
-    _animation = Tween<double>(begin: 1, end: 0).animate(_animationController);
+    _initSplashScreen();
     _startAnimation();
-  }
-
-  goNext() {
-    Navigator.of(context).pushReplacementNamed(AppRouter.onBorading);
-  }
-
-  _startAnimation() {
-    Future.delayed(
-      const Duration(seconds: 2),
-      () {
-        _animationController.forward();
-      },
-    );
   }
 
   @override
@@ -58,20 +39,41 @@ class _SplashScreenState extends State<SplashScreen>
               return AnimatedScale(
                 curve: Curves.linearToEaseOut,
                 scale: _animation.value,
-                duration: const Duration(milliseconds: 300),
+                duration: const Duration(
+                    milliseconds: AppConstants.animationDurationMili300),
                 child: Container(
                   color: AppColor.red,
                 ),
               );
             }),
         Center(
-          child: Hero(
-            tag: 'marvelLogo_',
-            child: SvgPicture.asset(AssetsIconPath.marvelLogo),
-          ),
+          child: SvgPicture.asset(AssetsIconPath.marvelLogo),
         ),
       ],
     ));
+  }
+
+  goNext() {
+    Navigator.of(context).pushReplacementNamed(AppRouter.onBorading);
+  }
+
+  _initSplashScreen() {
+    timer =
+        Timer(const Duration(seconds: AppConstants.splashDurationSec), goNext);
+    _animationController = AnimationController(
+        vsync: this,
+        duration: const Duration(
+            milliseconds: AppConstants.animationDurationMili300));
+    _animation = Tween<double>(begin: 1, end: 0).animate(_animationController);
+  }
+
+  _startAnimation() {
+    Future.delayed(
+      const Duration(seconds: AppConstants.animationDurationSec2),
+      () {
+        _animationController.forward();
+      },
+    );
   }
 
   @override

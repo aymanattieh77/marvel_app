@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:marvel_app/app/res/colors.dart';
 import 'package:marvel_app/app/res/strings.dart';
 import 'package:marvel_app/app/res/styles.dart';
@@ -37,6 +36,7 @@ class OnBoradingStackWidget extends StatelessWidget {
             title,
             style: AppStyles.textStyle20,
             textAlign: TextAlign.center,
+            softWrap: true,
           ),
         ),
         Center(
