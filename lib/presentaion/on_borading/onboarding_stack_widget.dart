@@ -4,6 +4,7 @@ import 'package:marvel_app/app/res/strings.dart';
 import 'package:marvel_app/app/res/styles.dart';
 import 'package:marvel_app/app/res/values.dart';
 import 'package:marvel_app/app/utils/app_router.dart';
+import 'package:marvel_app/app/utils/constants.dart';
 import 'package:marvel_app/presentaion/common/widgets/custom_elevated_button.dart';
 
 class OnBoradingStackWidget extends StatelessWidget {
@@ -43,11 +44,12 @@ class OnBoradingStackWidget extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              const SizedBox(height: 250),
+              const SizedBox(height: AppSizes.s250),
               AnimatedContainer(
-                duration: const Duration(milliseconds: 200),
+                duration:
+                    const Duration(milliseconds: AppConstants.duration200m),
                 padding: const EdgeInsets.symmetric(horizontal: AppPadding.p30),
-                height: isEndPage ? 50 : 0,
+                height: isEndPage ? AppSizes.s50 : AppSizes.s0,
                 child: CustomElevatedButton(
                   color: AppColor.red,
                   press: () {
@@ -58,11 +60,12 @@ class OnBoradingStackWidget extends StatelessWidget {
                   title: AppStrings.signup,
                 ),
               ),
-              const SizedBox(height: 30),
+              const SizedBox(height: AppSizes.s30),
               AnimatedContainer(
-                duration: const Duration(milliseconds: 200),
+                duration:
+                    const Duration(milliseconds: AppConstants.duration200m),
                 padding: const EdgeInsets.symmetric(horizontal: AppPadding.p30),
-                height: isEndPage ? 50 : 0,
+                height: isEndPage ? AppSizes.s50 : AppSizes.s0,
                 child: CustomElevatedButton(
                   color: AppColor.black,
                   press: () {

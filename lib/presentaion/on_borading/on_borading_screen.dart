@@ -4,6 +4,7 @@ import 'package:marvel_app/app/res/assets.dart';
 import 'package:marvel_app/app/res/colors.dart';
 import 'package:marvel_app/app/res/strings.dart';
 import 'package:marvel_app/app/res/values.dart';
+import 'package:marvel_app/app/utils/constants.dart';
 import 'package:marvel_app/presentaion/common/widgets/custom_elevated_button.dart';
 import 'package:marvel_app/presentaion/on_borading/on_Boarding_dummy.dart';
 import 'package:marvel_app/presentaion/on_borading/onboarding_stack_widget.dart';
@@ -25,16 +26,8 @@ class _OnBoardingScreenState extends State<OnBoardingScreen>
   @override
   void initState() {
     super.initState();
-    _animationController = AnimationController(
-        vsync: this, duration: const Duration(milliseconds: 600));
-    _animation =
-        Tween<Offset>(begin: const Offset(0, 300), end: const Offset(0, 220))
-            .animate(_animationController);
+    _initAnimation();
     _startAnimation();
-  }
-
-  _startAnimation() {
-    _animationController.forward();
   }
 
   @override
@@ -46,7 +39,9 @@ class _OnBoardingScreenState extends State<OnBoardingScreen>
             child: Stack(
               alignment: AlignmentDirectional.bottomCenter,
               children: [
+                // on boarding page vieww
                 _onboardingPageView(),
+                // page indicator
                 Positioned(
                   top: MediaQuery.of(context).size.height * 0.52,
                   child: Container(
@@ -62,23 +57,27 @@ class _OnBoardingScreenState extends State<OnBoardingScreen>
                     ),
                   ),
                 ),
+                // button
                 AnimatedContainer(
-                  duration: const Duration(milliseconds: 200),
+                  duration:
+                      const Duration(milliseconds: AppConstants.duration200m),
                   padding:
                       const EdgeInsets.symmetric(horizontal: AppPadding.p30),
-                  height: isEndPage ? 0 : 50,
-                  margin: const EdgeInsets.only(bottom: 70),
+                  height: isEndPage ? AppSizes.s0 : AppSizes.s50,
+                  margin: const EdgeInsets.only(bottom: AppMargin.m70),
                   child: CustomElevatedButton(
                     color: AppColor.red,
                     press: _goNextPage,
                     title: AppStrings.continue_,
                   ),
                 ),
+                // marvel logo
                 AnimatedBuilder(
                     animation: _animation,
                     builder: (context, _) {
                       return AnimatedPositioned(
-                        duration: const Duration(milliseconds: 600),
+                        duration: const Duration(
+                            milliseconds: AppConstants.duration600m),
                         top: _animation.value.dy,
                         child: SvgPicture.asset(AssetsIconPath.marvelLogo),
                       );
@@ -89,11 +88,6 @@ class _OnBoardingScreenState extends State<OnBoardingScreen>
         ],
       ),
     );
-  }
-
-  void _goNextPage() {
-    controller.animateToPage(controller.page!.toInt() + 1,
-        duration: const Duration(milliseconds: 200), curve: Curves.linear);
   }
 
   PageView _onboardingPageView() {
@@ -109,6 +103,25 @@ class _OnBoardingScreenState extends State<OnBoardingScreen>
         );
       },
     );
+  }
+
+  void _goNextPage() {
+    controller.animateToPage(controller.page!.toInt() + 1,
+        duration: const Duration(milliseconds: AppConstants.duration200m),
+        curve: Curves.linear);
+  }
+
+  _initAnimation() {
+    _animationController = AnimationController(
+        vsync: this,
+        duration: const Duration(milliseconds: AppConstants.duration600m));
+    _animation =
+        Tween<Offset>(begin: const Offset(0, 300), end: const Offset(0, 220))
+            .animate(_animationController);
+  }
+
+  _startAnimation() {
+    _animationController.forward();
   }
 
   void _onPageChanged(int value) {
