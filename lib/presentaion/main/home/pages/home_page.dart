@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:marvel_app/app/res/assets.dart';
 import 'package:marvel_app/app/res/strings.dart';
 import 'package:marvel_app/app/res/styles.dart';
-import 'package:marvel_app/presentaion/home/home/widgets/custom_home_appbar.dart';
-import 'package:marvel_app/presentaion/home/home/widgets/trending_today_listview.dart';
+import 'package:marvel_app/presentaion/main/home/widgets/home/custom_home_appbar.dart';
+import 'package:marvel_app/presentaion/main/home/widgets/home/trending_today_listview.dart';
 
-import '../widgets/lastet_movies_series_listview.dart';
+import '../widgets/home/lastet_movies_series_listview.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});

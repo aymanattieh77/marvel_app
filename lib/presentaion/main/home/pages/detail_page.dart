@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:marvel_app/app/res/assets.dart';
 import 'package:marvel_app/app/res/colors.dart';
 import 'package:marvel_app/app/res/strings.dart';
 import 'package:marvel_app/app/res/styles.dart';
-import 'package:marvel_app/presentaion/common/widgets/custom_elevated_button.dart';
-import 'package:marvel_app/presentaion/home/home/widgets/download_watchlist_section.dart';
+import 'package:marvel_app/presentaion/main/home/widgets/detail/download_watchlist_section.dart';
 
-import '../widgets/card_details_section.dart';
+import '../widgets/detail/card_details_section.dart';
 
 class DetailPage extends StatefulWidget {
   const DetailPage({super.key});

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:marvel_app/presentaion/common/widgets/custom_marvel_navigation_bar.dart';
-import 'package:marvel_app/presentaion/home/home/pages/home_page.dart';
+import 'package:marvel_app/presentaion/main/home/pages/home_page.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});

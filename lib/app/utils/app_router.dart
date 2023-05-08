@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:marvel_app/presentaion/home/home/pages/detail_page.dart';
-import 'package:marvel_app/presentaion/home/home_screen.dart';
+import 'package:marvel_app/presentaion/main/home/pages/detail_page.dart';
+import 'package:marvel_app/presentaion/main/home_screen.dart';
 import 'package:marvel_app/presentaion/on_borading/on_borading_screen.dart';
 import 'package:marvel_app/presentaion/sign_up_login/pages/login_screen.dart';
 import 'package:marvel_app/presentaion/sign_up_login/pages/sign_up_screen.dart';
