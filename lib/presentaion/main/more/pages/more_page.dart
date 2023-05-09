@@ -4,6 +4,8 @@ import 'package:marvel_app/app/res/strings.dart';
 import 'package:marvel_app/app/res/styles.dart';
 import 'package:marvel_app/app/res/values.dart';
 import 'package:marvel_app/app/utils/app_router.dart';
+import 'package:marvel_app/app/utils/functions.dart';
+import 'package:marvel_app/presentaion/common/widgets/custom_dialog.dart';
 import 'package:marvel_app/presentaion/main/more/widgets/list_tile_settings.dart';
 
 class MorePage extends StatelessWidget {
@@ -54,7 +56,10 @@ class MorePage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(left: AppPadding.p20),
             child: InkWell(
-              onTap: () {},
+              onTap: () {
+                showCustomDialog(context,
+                    const CustomDialog(title: AppStrings.doYouReallySignOut));
+              },
               child:
                   const Text(AppStrings.signOut, style: AppStyles.textStyle20),
             ),

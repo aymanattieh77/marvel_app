@@ -13,3 +13,15 @@ showToastMessage(BuildContext context, String message) {
   SnackBar snackBar = SnackBar(content: Text(message));
   ScaffoldMessenger.of(context).showSnackBar(snackBar);
 }
+
+showCustomDialog(BuildContext context, Widget child) {
+  showDialog(
+    context: context,
+    builder: (context) {
+      return Dialog(
+        insetPadding: EdgeInsets.zero,
+        child: child,
+      );
+    },
+  );
+}
