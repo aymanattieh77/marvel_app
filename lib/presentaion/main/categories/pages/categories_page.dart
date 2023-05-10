@@ -5,6 +5,8 @@ import 'package:marvel_app/app/res/colors.dart';
 import 'package:marvel_app/app/res/strings.dart';
 import 'package:marvel_app/app/res/styles.dart';
 import 'package:marvel_app/app/res/values.dart';
+import 'package:marvel_app/presentaion/common/widgets/custom_animated_toggle.dart';
+import 'package:marvel_app/presentaion/main/categories/widgets/filtering_movies_series.dart';
 
 import '../widgets/categories_movie_series_girdview.dart';
 
@@ -13,17 +15,19 @@ class CategoriesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    int index = 0;
     return Column(
       children: [
-        const SizedBox(
-          width: double.infinity,
+        CustomAnimatedToggle(
+          values: const [AppStrings.movies, AppStrings.series],
+          onPress: (value) {
+            print(value);
+          },
         ),
-         
         const SizedBox(height: AppSizes.s20),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: const [],
-        ),
+        FilteringMoviesSeries(onPress: (index) {
+          print(index);
+        }),
         const SizedBox(height: AppSizes.s12),
         const CategoriesMovieSeriesGridview(),
       ],
