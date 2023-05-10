@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:marvel_app/app/res/colors.dart';
 import 'package:marvel_app/app/res/styles.dart';
-import 'package:marvel_app/app/res/values.dart';
+
 import 'package:marvel_app/app/utils/constants.dart';
 
 class CustomAnimatedToggle extends StatefulWidget {
@@ -49,12 +49,11 @@ class _CustomAnimatedToggleState extends State<CustomAnimatedToggle> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: List.generate(
                   widget.values.length,
-                  (index) => Padding(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: AppSizes.s56),
+                  (index) => Expanded(
                     child: Text(
                       widget.values[index],
                       style: AppStyles.textstyle18,
+                      textAlign: TextAlign.center,
                     ),
                   ),
                 ),

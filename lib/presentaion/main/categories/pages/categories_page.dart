@@ -15,13 +15,12 @@ class CategoriesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    int index = 0;
     return Column(
       children: [
         CustomAnimatedToggle(
           values: const [AppStrings.movies, AppStrings.series],
-          onPress: (value) {
-            print(value);
+          onPress: (index) {
+            print(index);
           },
         ),
         const SizedBox(height: AppSizes.s20),
