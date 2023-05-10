@@ -22,6 +22,10 @@ abstract class AppStrings {
   static const String emailID = 'Enter your Email ID';
   static const String facebook = 'Facebook';
   static const String google = 'Google';
+  static const String newest = 'Newest';
+  static const String oldest = 'Oldest';
+  static const String top = 'Top';
+  static const String order = 'Order';
 
   // payment strings
   static const String chooseYourPlan = 'Choose your Plan';
