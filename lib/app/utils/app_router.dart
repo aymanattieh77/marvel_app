@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'package:marvel_app/presentaion/main/home/pages/detail_page.dart';
 import 'package:marvel_app/presentaion/main/home_screen.dart';
 import 'package:marvel_app/presentaion/main/more/pages/account_page.dart';
@@ -8,6 +10,7 @@ import 'package:marvel_app/presentaion/on_borading/on_borading_screen.dart';
 import 'package:marvel_app/presentaion/sign_up_login/pages/login_signup_page.dart';
 
 import 'package:marvel_app/presentaion/splash/splash_screen.dart';
+import 'package:marvel_app/shared/cubits/home_cubit/home_cubit.dart';
 
 class AppRouter {
   static const splash = '/';
@@ -28,7 +31,11 @@ class AppRouter {
       case AppRouter.loginSignUp:
         return MaterialPageRoute(builder: (ctx) => const LoginSignUpPage());
       case AppRouter.home:
-        return MaterialPageRoute(builder: (ctx) => const HomeScreen());
+        return MaterialPageRoute(
+            builder: (ctx) => BlocProvider(
+                  create: (context) => HomeCubit(),
+                  child: const HomeScreen(),
+                ));
       case AppRouter.moviePage:
         return MaterialPageRoute(builder: (ctx) => const DetailPage());
       case AppRouter.settingPage:
