@@ -10,14 +10,15 @@ class MoviesSeriesSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: const [
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
         Padding(
-          padding: EdgeInsets.only(left: AppPadding.p12),
-          child: Text(AppStrings.trendingToday, style: AppStyles.textstyle24),
+          padding: const EdgeInsets.only(left: AppPadding.p12),
+          child: Text(title, style: AppStyles.textstyle24),
         ),
-        SizedBox(height: AppSizes.s10),
-        TrendingTodayListView(),
-        SizedBox(height: AppSizes.s24),
+        const SizedBox(height: AppSizes.s10),
+        const TrendingTodayListView(),
+        const SizedBox(height: AppSizes.s24),
       ],
     );
   }
