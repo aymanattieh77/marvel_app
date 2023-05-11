@@ -1,4 +1,7 @@
+import 'package:dio/dio.dart';
 import 'package:marvel_app/data/api_services/movies_series/movies_series_service.dart';
+import 'package:marvel_app/data/errors/error_handler.dart';
+import 'package:marvel_app/data/mappers/mappers.dart';
 import 'package:marvel_app/data/network/network_info.dart';
 import 'package:marvel_app/domain/models/move_series/movie_series_model.dart';
 import 'package:marvel_app/data/errors/failure.dart';
@@ -10,11 +13,42 @@ class MovieSeriesRepositoryImpl implements MovieSeriesRepository {
   final NetworkInfo _networkInfo;
   MovieSeriesRepositoryImpl(this._movieSeriesService, this._networkInfo);
   @override
-  Future<Either<Failure, MovieSeriesModel>> getMovies() async {
+  Future<Either<Failure, List<MovieSeriesModel>>> getMovies() async {
     if (await _networkInfo.isConnected) {
-    } else {}
+      try {
+        final response = await _movieSeriesService.getMovies();
+        final data = response.data ?? [];
+        // covert MoviesSeriesData to MovieSeriesModel  using to domain concept
+        return Right(data.map((e) => e.toDomain()).toList());
+      } catch (e) {
+        if (e is DioError) {
+          return Left(ErrorHandler.fromDioError(e));
+        } else {
+          return Left(Failure(1, e.toString()));
+        }
+      }
+    } else {
+      return Left(ResponseStatusCode.noIntenetConnection.getFailure());
+    }
   }
 
   @override
-  Future<Either<Failure, MovieSeriesModel>> getSeries() {}
+  Future<Either<Failure, List<MovieSeriesModel>>> getSeries() async {
+    if (await _networkInfo.isConnected) {
+      try {
+        final response = await _movieSeriesService.getSeries();
+        final data = response.data ?? [];
+        // covert MoviesSeriesData to MovieSeriesModel  using to domain concept
+        return Right(data.map((e) => e.toDomain()).toList());
+      } catch (e) {
+        if (e is DioError) {
+          return Left(ErrorHandler.fromDioError(e));
+        } else {
+          return Left(Failure(1, e.toString()));
+        }
+      }
+    } else {
+      return Left(ResponseStatusCode.noIntenetConnection.getFailure());
+    }
+  }
 }
