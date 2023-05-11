@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:marvel_app/app/di/service_locator.dart';
 
 import 'package:marvel_app/presentaion/main/home/pages/detail_page.dart';
 import 'package:marvel_app/presentaion/main/home_screen.dart';
@@ -31,9 +32,10 @@ class AppRouter {
       case AppRouter.loginSignUp:
         return MaterialPageRoute(builder: (ctx) => const LoginSignUpPage());
       case AppRouter.home:
+        setupHomeCubit();
         return MaterialPageRoute(
             builder: (ctx) => BlocProvider(
-                  create: (context) => HomeCubit(),
+                  create: (context) => getIt<HomeCubit>(),
                   child: const HomeScreen(),
                 ));
       case AppRouter.moviePage:
