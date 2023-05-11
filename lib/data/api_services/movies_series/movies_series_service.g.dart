@@ -13,7 +13,7 @@ class _MovieSeriesService implements MovieSeriesService {
     this._dio, {
     this.baseUrl,
   }) {
-    baseUrl ??= ' https://mcuapi.herokuapp.com/api/v1/';
+    baseUrl ??= 'https://mcuapi.herokuapp.com/api/v1/';
   }
 
   final Dio _dio;

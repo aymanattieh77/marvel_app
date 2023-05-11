@@ -6,5 +6,5 @@ abstract class AppConstants {
   static const int timeOut = 1000 * 60;
 
   static const int animationDurationSec2 = 2;
-  static const String moviesSeriesAPI = ' https://mcuapi.herokuapp.com/api/v1/';
+  static const String moviesSeriesAPI = 'https://mcuapi.herokuapp.com/api/v1/';
 }
