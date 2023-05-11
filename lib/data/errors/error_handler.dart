@@ -1,46 +1,87 @@
 import 'package:dio/dio.dart';
 import 'failure.dart';
 
-class ServerFailure extends Failure {
-  ServerFailure(super.statusCode, super.message);
-
-  factory ServerFailure.fromDioError(DioError error) {
-    switch (error.type) {
+class ErrorHandler {
+  static Failure fromDioError(DioError dioError) {
+    switch (dioError.type) {
       case DioErrorType.connectionTimeout:
-        return ServerFailure(1, 'Connection timeout with ApiServer');
-      case DioErrorType.sendTimeout:
-        return ServerFailure(1, 'Send timeout with ApiServer');
-      case DioErrorType.receiveTimeout:
-        return ServerFailure(1, 'Receive timeout with ApiServer');
-      case DioErrorType.badCertificate:
+        return ResponseStatusCode.connectTimeOut.getFailure();
 
+      case DioErrorType.sendTimeout:
+        return ResponseStatusCode.sendTimeOut.getFailure();
+      case DioErrorType.receiveTimeout:
+        return ResponseStatusCode.receiveTimeOut.getFailure();
+      case DioErrorType.badCertificate:
+        return Failure(
+            dioError.response!.statusCode!, dioError.response!.statusMessage!);
       case DioErrorType.badResponse:
-        return ServerFailure.fromResponse(
-            error.response!.statusCode, error.response!.data);
+        return Failure(
+            dioError.response!.statusCode!, dioError.response!.statusMessage!);
       case DioErrorType.cancel:
-        return ServerFailure(1, 'Request to ApiServer was canceld');
+        return ResponseStatusCode.cancelError.getFailure();
       case DioErrorType.connectionError:
-        return ServerFailure.fromResponse(
-            error.response!.statusCode, error.response!.data);
+        return ResponseStatusCode.connectTimeOut.getFailure();
       case DioErrorType.unknown:
-        if (error.message!.contains('SocketException')) {
-          return ServerFailure(1, 'No Internet Connection');
-        }
-        return ServerFailure(1, 'Unexpected Error, Please try again!');
-      default:
-        return ServerFailure(1, 'Opps There was an Error, Please try again');
+        return fromResponseError(dioError.response!.statusCode);
     }
   }
-  factory ServerFailure.fromResponse(int? statusCode, dynamic response) {
-    if (statusCode == 400 || statusCode == 401 || statusCode == 403) {
-      return ServerFailure(statusCode ?? 1, response['error']['message']);
-    } else if (statusCode == 404) {
-      return ServerFailure(404, 'Your request not found, Please try later!');
-    } else if (statusCode == 500) {
-      return ServerFailure(500, 'Internal Server error, Please try later');
+
+  static Failure fromResponseError(int? statusCode) {
+    if (statusCode != null) {
+      switch (statusCode) {
+        case 400:
+          return ResponseStatusCode.badRequest.getFailure();
+        case 401:
+          return ResponseStatusCode.unauthorized.getFailure();
+        case 403:
+          return ResponseStatusCode.forbidden.getFailure();
+        case 404:
+          return ResponseStatusCode.notFound.getFailure();
+        default:
+          return ResponseStatusCode.defaultError.getFailure();
+      }
     } else {
-      return ServerFailure(
-          statusCode ?? 1, 'Opps There was an Error, Please try again');
+      return ResponseStatusCode.defaultError.getFailure();
+    }
+  }
+}
+
+extension ResponseStatusCodeExtension on ResponseStatusCode {
+  Failure getFailure() {
+    switch (this) {
+      case ResponseStatusCode.ok:
+        return Failure(ResponsesCode.ok, ResponsesMessages.ok);
+      case ResponseStatusCode.noContent:
+        return Failure(ResponsesCode.noContent, ResponsesMessages.noContent);
+      case ResponseStatusCode.badRequest:
+        return Failure(ResponsesCode.badRequest, ResponsesMessages.badRequest);
+      case ResponseStatusCode.unauthorized:
+        return Failure(
+            ResponsesCode.unauthorized, ResponsesMessages.unauthorized);
+      case ResponseStatusCode.forbidden:
+        return Failure(ResponsesCode.forbidden, ResponsesMessages.forbidden);
+      case ResponseStatusCode.notFound:
+        return Failure(ResponsesCode.notFound, ResponsesMessages.notFound);
+      case ResponseStatusCode.noIntenetConnection:
+        return Failure(ResponsesCode.noIntenetConnection,
+            ResponsesMessages.noIntenetConnection);
+      case ResponseStatusCode.defaultError:
+        return Failure(
+            ResponsesCode.defaultError, ResponsesMessages.defaultError);
+      case ResponseStatusCode.cacheError:
+        return Failure(ResponsesCode.cacheError, ResponsesMessages.cacheError);
+      case ResponseStatusCode.connectTimeOut:
+        return Failure(
+            ResponsesCode.connectTimeOut, ResponsesMessages.connectTimeOut);
+      case ResponseStatusCode.receiveTimeOut:
+        return Failure(
+            ResponsesCode.receiveTimeOut, ResponsesMessages.receiveTimeOut);
+      case ResponseStatusCode.sendTimeOut:
+        return Failure(
+            ResponsesCode.sendTimeOut, ResponsesMessages.sendTimeOut);
+      case ResponseStatusCode.cancelError:
+        return Failure(
+            ResponsesCode.cancelError, ResponsesMessages.cancelError);
     }
   }
 }
