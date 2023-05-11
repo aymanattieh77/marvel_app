@@ -30,6 +30,8 @@ environment:
 dependencies:
   carousel_slider: ^4.2.1
   cupertino_icons: ^1.0.2
+  dio: ^5.1.2
+  equatable: ^2.0.5
   fl_chart: ^0.62.0
   flutter:
     sdk: flutter
