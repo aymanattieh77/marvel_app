@@ -3,12 +3,17 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:marvel_app/app/res/assets.dart';
 import 'package:marvel_app/app/res/colors.dart';
 import 'package:marvel_app/app/res/styles.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:marvel_app/app/res/values.dart';
 
 class CardDetailsSection extends StatelessWidget {
   const CardDetailsSection({
     super.key,
+    required this.imageUrl,
+    required this.title,
   });
-
+  final String imageUrl;
+  final String title;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -19,9 +24,9 @@ class CardDetailsSection extends StatelessWidget {
         children: [
           Container(
               width: double.infinity,
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage(AssetsImagePath.cardTest),
+                    image: CachedNetworkImageProvider(imageUrl),
                     fit: BoxFit.fill,
                     alignment: Alignment.topCenter),
               ),
@@ -38,12 +43,15 @@ class CardDetailsSection extends StatelessWidget {
                   ),
                 ),
               )),
-          const Positioned(
+          Positioned(
             top: 56,
+            left: 60,
+            right: 60,
             child: Text(
-              'Ant-Man and The Wasp\nQuantumania',
+              title,
               style: AppStyles.textStyle20,
               textAlign: TextAlign.center,
+              maxLines: 2,
             ),
           ),
           SvgPicture.asset(AssetsIconPath.arrowCircleRight),

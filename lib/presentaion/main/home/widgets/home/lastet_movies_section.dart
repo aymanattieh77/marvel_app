@@ -8,19 +8,8 @@ import 'package:marvel_app/shared/cubits/home_cubit/home_cubit.dart';
 
 import 'lastet_movies_series_listview.dart';
 
-class LastetMoviesSection extends StatefulWidget {
+class LastetMoviesSection extends StatelessWidget {
   const LastetMoviesSection({super.key});
-
-  @override
-  State<LastetMoviesSection> createState() => _LastetMoviesSectionState();
-}
-
-class _LastetMoviesSectionState extends State<LastetMoviesSection> {
-  @override
-  void initState() {
-    super.initState();
-    BlocProvider.of<HomeCubit>(context).getMovies();
-  }
 
   @override
   Widget build(BuildContext context) {

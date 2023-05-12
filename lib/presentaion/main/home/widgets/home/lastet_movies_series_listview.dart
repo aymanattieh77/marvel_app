@@ -13,29 +13,30 @@ class LastetMoviesSeriesListView extends StatelessWidget {
   final List<MovieSeriesModel> items;
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        Navigator.of(context).pushNamed(AppRouter.moviePage);
-      },
-      child: SizedBox(
-        height: MediaQuery.of(context).size.height * .30,
-        child: CarouselSlider.builder(
-          itemCount: items.length - 1,
-          options: CarouselOptions(
-            autoPlay: true,
-            enlargeCenterPage: true,
-            enlargeFactor: 0.3,
-          ),
-          itemBuilder: (context, index, realIndex) {
-            return AspectRatio(
+    return SizedBox(
+      height: MediaQuery.of(context).size.height * .30,
+      child: CarouselSlider.builder(
+        itemCount: items.length - 1,
+        options: CarouselOptions(
+          autoPlay: true,
+          enlargeCenterPage: true,
+          enlargeFactor: 0.3,
+        ),
+        itemBuilder: (context, index, realIndex) {
+          return GestureDetector(
+            onTap: () {
+              Navigator.of(context)
+                  .pushNamed(AppRouter.moviePage, arguments: items[index]);
+            },
+            child: AspectRatio(
               aspectRatio: 4 / 2.5,
               child: CachedNetworkImage(
                   imageUrl: items[index].coverUrl,
                   alignment: Alignment.bottomCenter,
                   fit: BoxFit.fitWidth),
-            );
-          },
-        ),
+            ),
+          );
+        },
       ),
     );
   }

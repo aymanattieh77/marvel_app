@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:marvel_app/app/di/service_locator.dart';
+import 'package:marvel_app/domain/models/move_series/movie_series_model.dart';
 
 import 'package:marvel_app/presentaion/main/home/pages/detail_page.dart';
 import 'package:marvel_app/presentaion/main/home_screen.dart';
@@ -39,7 +40,9 @@ class AppRouter {
                   child: const HomeScreen(),
                 ));
       case AppRouter.moviePage:
-        return MaterialPageRoute(builder: (ctx) => const DetailPage());
+        final model = settings.arguments as MovieSeriesModel;
+        return MaterialPageRoute(
+            builder: (ctx) => DetailPage(movieSeriesModel: model));
       case AppRouter.settingPage:
         return MaterialPageRoute(builder: (ctx) => const SettingPage());
       case AppRouter.accountPage:

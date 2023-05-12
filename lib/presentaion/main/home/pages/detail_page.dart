@@ -4,6 +4,7 @@ import 'package:marvel_app/app/res/colors.dart';
 import 'package:marvel_app/app/res/strings.dart';
 import 'package:marvel_app/app/res/styles.dart';
 import 'package:marvel_app/app/res/values.dart';
+import 'package:marvel_app/domain/models/move_series/movie_series_model.dart';
 import 'package:marvel_app/presentaion/main/home/widgets/detail/cast_movie_series_listview.dart';
 import 'package:marvel_app/presentaion/main/home/widgets/detail/download_watchlist_section.dart';
 import 'package:marvel_app/presentaion/main/home/widgets/detail/more_movie_series_listview.dart';
@@ -12,8 +13,8 @@ import 'package:marvel_app/presentaion/main/home/widgets/detail/trailer_movie_se
 import '../widgets/detail/card_details_section.dart';
 
 class DetailPage extends StatefulWidget {
-  const DetailPage({super.key});
-
+  const DetailPage({super.key, required this.movieSeriesModel});
+  final MovieSeriesModel? movieSeriesModel;
   @override
   State<DetailPage> createState() => _DetailPageState();
 }
@@ -32,7 +33,9 @@ class _DetailPageState extends State<DetailPage> {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                const CardDetailsSection(),
+                CardDetailsSection(
+                    imageUrl: widget.movieSeriesModel!.coverUrl,
+                    title: widget.movieSeriesModel!.title),
                 const SizedBox(height: AppSizes.s20),
                 const DownloadWatchListSection(),
                 const SizedBox(height: AppSizes.s16),
