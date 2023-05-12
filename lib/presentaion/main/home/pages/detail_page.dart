@@ -24,8 +24,6 @@ class _DetailPageState extends State<DetailPage> {
 
   @override
   Widget build(BuildContext context) {
-    final data =
-        'Super Hero partners Scott Lang and Hope Van Dyne return to continue their adventures as Ant-Man and The Wasp. Together, with Hope’s parents Hank Pym and Janet Van Dyne, the family finds themselves exploring the Quantum Realm, interacting with strange new creatures, and embarking on an adventure that will push them beyond the limits of what they thought was possible.';
     return DefaultTabController(
       length: 3,
       child: Scaffold(
@@ -44,7 +42,7 @@ class _DetailPageState extends State<DetailPage> {
                       const EdgeInsets.symmetric(horizontal: AppPadding.p16),
                   height: AppSizes.s150,
                   child: Text(
-                    data,
+                    widget.movieSeriesModel!.overview,
                     style: AppStyles.textstyle14.copyWith(
                         color: AppColor.white, fontWeight: FontWeight.w400),
                     softWrap: true,
@@ -95,7 +93,10 @@ class _DetailPageState extends State<DetailPage> {
     } else if (tab == 2) {
       return const MoreMovieSeriesListview();
     } else {
-      return const TrailerMovieSeriesCard();
+      return TrailerMovieSeriesCard(
+        imageUrl: widget.movieSeriesModel!.coverUrl,
+        url: widget.movieSeriesModel!.trailerUrl,
+      );
     }
   }
 }
