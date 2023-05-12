@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:marvel_app/app/utils/app_router.dart';
 
 import 'package:marvel_app/domain/models/move_series/movie_series_model.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:marvel_app/shared/cubits/home_cubit/home_cubit.dart';
 
 class CategoriesMovieSeriesGridview extends StatelessWidget {
   const CategoriesMovieSeriesGridview({
@@ -22,8 +25,16 @@ class CategoriesMovieSeriesGridview extends StatelessWidget {
             childAspectRatio: 2.7 / 4),
         itemCount: items.length,
         itemBuilder: (context, index) {
-          return CachedNetworkImage(
-              imageUrl: items[index].coverUrl, fit: BoxFit.cover);
+          return GestureDetector(
+            onTap: () {
+              Navigator.of(context).pushNamed(AppRouter.moviePage,
+                  arguments: DetailPageArguments(
+                      homeCubit: context.read<HomeCubit>(),
+                      model: items[index]));
+            },
+            child: CachedNetworkImage(
+                imageUrl: items[index].coverUrl, fit: BoxFit.cover),
+          );
         },
       ),
     );

@@ -40,9 +40,16 @@ class AppRouter {
                   child: const HomeScreen(),
                 ));
       case AppRouter.moviePage:
-        final model = settings.arguments as MovieSeriesModel;
+        final args = settings.arguments as DetailPageArguments;
+
         return MaterialPageRoute(
-            builder: (ctx) => DetailPage(movieSeriesModel: model));
+          builder: (ctx) => BlocProvider.value(
+            value: args.homeCubit,
+            child: DetailPage(
+              args: args,
+            ),
+          ),
+        );
       case AppRouter.settingPage:
         return MaterialPageRoute(builder: (ctx) => const SettingPage());
       case AppRouter.accountPage:

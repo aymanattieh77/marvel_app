@@ -4,17 +4,19 @@ import 'package:marvel_app/app/res/colors.dart';
 import 'package:marvel_app/app/res/strings.dart';
 import 'package:marvel_app/app/res/styles.dart';
 import 'package:marvel_app/app/res/values.dart';
-import 'package:marvel_app/domain/models/move_series/movie_series_model.dart';
+
 import 'package:marvel_app/presentaion/main/home/widgets/detail/cast_movie_series_listview.dart';
 import 'package:marvel_app/presentaion/main/home/widgets/detail/download_watchlist_section.dart';
 import 'package:marvel_app/presentaion/main/home/widgets/detail/more_movie_series_listview.dart';
 import 'package:marvel_app/presentaion/main/home/widgets/detail/trailer_movie_series_card.dart';
+import 'package:marvel_app/shared/cubits/home_cubit/home_cubit.dart';
 
 import '../widgets/detail/card_details_section.dart';
 
 class DetailPage extends StatefulWidget {
-  const DetailPage({super.key, required this.movieSeriesModel});
-  final MovieSeriesModel? movieSeriesModel;
+  const DetailPage({super.key, required this.args});
+
+  final DetailPageArguments? args;
   @override
   State<DetailPage> createState() => _DetailPageState();
 }
@@ -32,17 +34,19 @@ class _DetailPageState extends State<DetailPage> {
             child: Column(
               children: [
                 CardDetailsSection(
-                    imageUrl: widget.movieSeriesModel!.coverUrl,
-                    title: widget.movieSeriesModel!.title),
+                    imageUrl: widget.args!.model.coverUrl,
+                    title: widget.args!.model.title),
                 const SizedBox(height: AppSizes.s20),
-                const DownloadWatchListSection(),
+                DownloadWatchListSection(
+                  arg: widget.args!,
+                ),
                 const SizedBox(height: AppSizes.s16),
                 Container(
                   padding:
                       const EdgeInsets.symmetric(horizontal: AppPadding.p16),
                   height: AppSizes.s150,
                   child: Text(
-                    widget.movieSeriesModel!.overview,
+                    widget.args!.model.overview,
                     style: AppStyles.textstyle14.copyWith(
                         color: AppColor.white, fontWeight: FontWeight.w400),
                     softWrap: true,
@@ -94,8 +98,8 @@ class _DetailPageState extends State<DetailPage> {
       return const MoreMovieSeriesListview();
     } else {
       return TrailerMovieSeriesCard(
-        imageUrl: widget.movieSeriesModel!.coverUrl,
-        url: widget.movieSeriesModel!.trailerUrl,
+        imageUrl: widget.args!.model.coverUrl,
+        url: widget.args!.model.trailerUrl,
       );
     }
   }

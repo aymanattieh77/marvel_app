@@ -28,7 +28,6 @@ class MoviesSeriesSection extends StatelessWidget {
             return Container(height: 20, color: Colors.red);
           } else if (state is MovieSeriesLoaded) {
             final items = getMoviesSeries(context);
-            items.shuffle();
 
             return TrendingTodayListView(items: items);
           } else {
@@ -45,7 +44,6 @@ class MoviesSeriesSection extends StatelessWidget {
       return BlocProvider.of<HomeCubit>(context).series;
     } else if (title == AppStrings.oldMovies) {
       final oldMovies = BlocProvider.of<HomeCubit>(context).movies;
-      oldMovies.shuffle();
       return oldMovies;
     } else {
       return BlocProvider.of<HomeCubit>(context).movies;

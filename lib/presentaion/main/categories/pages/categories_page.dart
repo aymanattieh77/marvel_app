@@ -38,6 +38,7 @@ class CategoriesPage extends StatelessWidget {
             } else if (state is MovieSeriesLoaded) {
               final items =
                   BlocProvider.of<HomeCubit>(context).getMovieOrSeries();
+
               return CategoriesMovieSeriesGridview(items: items);
             } else {
               return Container(
@@ -51,5 +52,3 @@ class CategoriesPage extends StatelessWidget {
     );
   }
 }
-
-getMoviesSeries() {}

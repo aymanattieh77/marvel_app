@@ -1,5 +1,7 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'package:marvel_app/domain/models/move_series/movie_series_model.dart';
 import 'package:marvel_app/domain/repository/movie_series_repository.dart';
 import 'package:marvel_app/presentaion/main/categories/pages/categories_page.dart';
@@ -17,12 +19,23 @@ class HomeCubit extends Cubit<HomeState> {
   int tabIndex = 0;
   List<MovieSeriesModel> movies = [];
   List<MovieSeriesModel> series = [];
+  List<MovieSeriesModel> watchList = [];
 
   List<MovieSeriesModel> getMovieOrSeries() {
     if (tabIndex == 1) {
       return series;
     } else {
       return movies;
+    }
+  }
+
+  addToWatchList(int id, bool isMovie) {
+    if (isMovie) {
+      final movie = movies.singleWhere((movie) => movie.id == id);
+      watchList.add(movie);
+    } else {
+      final serie = series.singleWhere((series) => series.id == id);
+      watchList.add(serie);
     }
   }
 
@@ -86,4 +99,13 @@ class HomeCubit extends Cubit<HomeState> {
       },
     );
   }
+}
+
+class DetailPageArguments {
+  final HomeCubit homeCubit;
+  final MovieSeriesModel model;
+  DetailPageArguments({
+    required this.homeCubit,
+    required this.model,
+  });
 }
