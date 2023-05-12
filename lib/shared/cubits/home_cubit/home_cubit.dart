@@ -29,6 +29,9 @@ class HomeCubit extends Cubit<HomeState> {
   }
 
   getMovies() async {
+    if (movies.isNotEmpty) {
+      return;
+    }
     emit(MovieSeriesLoading());
 
     (await _movieSeriesRepository.getMovies()).fold(
@@ -43,6 +46,9 @@ class HomeCubit extends Cubit<HomeState> {
   }
 
   getSeries() async {
+    if (series.isNotEmpty) {
+      return;
+    }
     emit(MovieSeriesLoading());
 
     (await _movieSeriesRepository.getSeries()).fold(

@@ -43,6 +43,7 @@ dependencies:
   get_it: ^7.6.0
   internet_connection_checker: ^1.0.0+1
   
+  jiffy: ^6.1.0
   retrofit: ^4.0.1
   smooth_page_indicator: ^1.1.0
   url_launcher: ^6.1.10
