@@ -44,6 +44,7 @@ class MoviesSeriesSection extends StatelessWidget {
       return BlocProvider.of<HomeCubit>(context).series;
     } else if (title == AppStrings.oldMovies) {
       final oldMovies = BlocProvider.of<HomeCubit>(context).movies;
+
       return oldMovies;
     } else {
       return BlocProvider.of<HomeCubit>(context).movies;

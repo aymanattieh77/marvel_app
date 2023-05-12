@@ -31,6 +31,7 @@ class _DetailPageState extends State<DetailPage> {
       child: Scaffold(
         body: SafeArea(
           child: SingleChildScrollView(
+            physics: const BouncingScrollPhysics(),
             child: Column(
               children: [
                 CardDetailsSection(
