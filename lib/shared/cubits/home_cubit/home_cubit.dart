@@ -14,6 +14,9 @@ class HomeCubit extends Cubit<HomeState> {
   final MovieSeriesRepository _movieSeriesRepository;
 
   int currnetIndex = 0;
+  List<MovieSeriesModel> movies = [];
+  List<MovieSeriesModel> series = [];
+
   final pages = const [
     HomePage(),
     CategoriesPage(),
@@ -26,27 +29,29 @@ class HomeCubit extends Cubit<HomeState> {
   }
 
   getMovies() async {
-    emit(MovieLoading());
+    emit(MovieSeriesLoading());
 
     (await _movieSeriesRepository.getMovies()).fold(
       (failure) {
-        emit(MovieFailure(message: failure.message));
+        emit(MovieSeriesFailure(message: failure.message));
       },
-      (movies) {
-        emit(MovieLoaded(movies: movies));
+      (items) {
+        emit(MovieSeriesLoaded(items: movies));
+        movies = items;
       },
     );
   }
 
   getSeries() async {
-    emit(SeriesLoading());
+    emit(MovieSeriesLoading());
 
-    (await _movieSeriesRepository.getMovies()).fold(
+    (await _movieSeriesRepository.getSeries()).fold(
       (failure) {
-        emit(SeriesFailure(message: failure.message));
+        emit(MovieSeriesFailure(message: failure.message));
       },
-      (series) {
-        emit(SeriesLoaded(series: series));
+      (items) {
+        emit(MovieSeriesLoaded(items: series));
+        series = items;
       },
     );
   }

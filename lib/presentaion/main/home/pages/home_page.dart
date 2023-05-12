@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:marvel_app/app/res/strings.dart';
 import 'package:marvel_app/app/res/values.dart';
 import 'package:marvel_app/presentaion/main/home/widgets/home/custom_home_appbar.dart';
-import 'package:marvel_app/presentaion/main/home/widgets/home/lastet_movies_series_section.dart';
+import 'package:marvel_app/presentaion/main/home/widgets/home/lastet_movies_section.dart';
+import 'package:marvel_app/presentaion/main/home/widgets/home/lastet_series_section.dart';
 import 'package:marvel_app/presentaion/main/home/widgets/home/movies_series_section.dart';
 
 class HomePage extends StatelessWidget {
@@ -21,8 +23,8 @@ class HomePage extends StatelessWidget {
           delegate: SliverChildListDelegate.fixed(
             [
               SizedBox(height: AppSizes.s30),
-              LastetMoviesSeriesSection(title: AppStrings.lastetMovies),
-              LastetMoviesSeriesSection(title: AppStrings.lastetSeries),
+              LastetMoviesSection(),
+              LastetSeriesSection(),
               MoviesSeriesSection(title: AppStrings.trendingToday),
               MoviesSeriesSection(title: AppStrings.oldMovies),
               MoviesSeriesSection(title: AppStrings.oldSeries),

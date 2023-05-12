@@ -8,34 +8,18 @@ class HomeInitial extends HomeState {}
 
 class NavigationIndexChange extends HomeState {}
 
-class MovieLoading extends HomeState {}
+class MovieSeriesLoading extends HomeState {}
 
-class MovieFailure extends HomeState {
+class MovieSeriesFailure extends HomeState {
   final String message;
-  MovieFailure({
+  MovieSeriesFailure({
     required this.message,
   });
 }
 
-class MovieLoaded extends HomeState {
-  final List<MovieSeriesModel> movies;
-  MovieLoaded({
-    required this.movies,
-  });
-}
-
-class SeriesLoading extends HomeState {}
-
-class SeriesFailure extends HomeState {
-  final String message;
-  SeriesFailure({
-    required this.message,
-  });
-}
-
-class SeriesLoaded extends HomeState {
-  final List<MovieSeriesModel> series;
-  SeriesLoaded({
-    required this.series,
+class MovieSeriesLoaded extends HomeState {
+  final List<MovieSeriesModel> items;
+  MovieSeriesLoaded({
+    required this.items,
   });
 }
