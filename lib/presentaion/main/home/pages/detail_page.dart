@@ -38,9 +38,7 @@ class _DetailPageState extends State<DetailPage> {
                     imageUrl: widget.args!.model.coverUrl,
                     title: widget.args!.model.title),
                 const SizedBox(height: AppSizes.s20),
-                DownloadWatchListSection(
-                  arg: widget.args!,
-                ),
+                const DownloadWatchListSection(),
                 const SizedBox(height: AppSizes.s16),
                 Container(
                   padding:

@@ -29,16 +29,6 @@ class HomeCubit extends Cubit<HomeState> {
     }
   }
 
-  addToWatchList(int id, bool isMovie) {
-    if (isMovie) {
-      final movie = movies.singleWhere((movie) => movie.id == id);
-      watchList.add(movie);
-    } else {
-      final serie = series.singleWhere((series) => series.id == id);
-      watchList.add(serie);
-    }
-  }
-
   changeTabIndex(int index) {
     tabIndex = index;
     emit(MovieSeriesTabIndexChange());
