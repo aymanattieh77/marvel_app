@@ -18,8 +18,9 @@ class MovieSeriesFailure extends HomeState {
 }
 
 class MovieSeriesLoaded extends HomeState {
-  final List<MovieSeriesModel> items;
-  MovieSeriesLoaded({
-    required this.items,
-  });
+  MovieSeriesLoaded();
+}
+
+class MovieSeriesTabIndexChange extends HomeState {
+  MovieSeriesTabIndexChange();
 }

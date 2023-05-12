@@ -30,7 +30,7 @@ class _WatchListDownloadPageState extends State<WatchListDownloadPage> {
             }),
         const SizedBox(height: AppSizes.s16),
         if (currentIndex == 0) const MovieSeriesDownloadListview(),
-        if (currentIndex == 1) const CategoriesMovieSeriesGridview(),
+        // if (currentIndex == 1) const CategoriesMovieSeriesGridview(),
       ],
     );
   }

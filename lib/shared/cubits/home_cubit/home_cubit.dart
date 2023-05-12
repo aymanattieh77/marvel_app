@@ -14,8 +14,23 @@ class HomeCubit extends Cubit<HomeState> {
   final MovieSeriesRepository _movieSeriesRepository;
 
   int currnetIndex = 0;
+  int tabIndex = 0;
   List<MovieSeriesModel> movies = [];
   List<MovieSeriesModel> series = [];
+
+  List<MovieSeriesModel> getMovieOrSeries() {
+    if (tabIndex == 1) {
+      return series;
+    } else {
+      return movies;
+    }
+  }
+
+  changeTabIndex(int index) {
+    tabIndex = index;
+    emit(MovieSeriesTabIndexChange());
+    loadedMoviesSeries();
+  }
 
   final pages = const [
     HomePage(),
@@ -26,6 +41,16 @@ class HomeCubit extends Cubit<HomeState> {
   changeIndex(int index) {
     currnetIndex = index;
     emit(NavigationIndexChange());
+    loadedMoviesSeries();
+  }
+
+  loadedMoviesSeries() {
+    if (movies.isNotEmpty && series.isNotEmpty) {
+      emit(MovieSeriesLoaded());
+    } else {
+      getMovies();
+      getSeries();
+    }
   }
 
   getMovies() async {
@@ -39,7 +64,7 @@ class HomeCubit extends Cubit<HomeState> {
         emit(MovieSeriesFailure(message: failure.message));
       },
       (items) {
-        emit(MovieSeriesLoaded(items: movies));
+        emit(MovieSeriesLoaded());
         movies = items;
       },
     );
@@ -56,7 +81,7 @@ class HomeCubit extends Cubit<HomeState> {
         emit(MovieSeriesFailure(message: failure.message));
       },
       (items) {
-        emit(MovieSeriesLoaded(items: series));
+        emit(MovieSeriesLoaded());
         series = items;
       },
     );
