@@ -34,6 +34,8 @@ dependencies:
   dartz: ^0.10.1
   dio: ^5.1.2
   equatable: ^2.0.5
+  firebase_auth: ^4.6.0
+  firebase_core: ^2.12.0
   fl_chart: ^0.62.0
   flutter:
     sdk: flutter

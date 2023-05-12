@@ -18,8 +18,9 @@ class LastetMoviesSeriesListView extends StatelessWidget {
     return SizedBox(
       height: MediaQuery.of(context).size.height * .30,
       child: CarouselSlider.builder(
-        itemCount: items.length - 1,
+        itemCount: items.length,
         options: CarouselOptions(
+          initialPage: 0,
           autoPlay: true,
           enlargeCenterPage: true,
           enlargeFactor: 0.3,

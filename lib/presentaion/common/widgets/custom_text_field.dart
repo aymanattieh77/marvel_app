@@ -6,16 +6,23 @@ import 'package:marvel_app/app/res/values.dart';
 
 class CustomTextField extends StatelessWidget {
   const CustomTextField(
-      {super.key, required this.hint, this.isPassword = false});
+      {super.key,
+      required this.hint,
+      this.isPassword = false,
+      required this.controller,
+      this.validator});
 
   final String hint;
   final bool isPassword;
-
+  final TextEditingController controller;
+  final String? Function(String?)? validator;
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
       enabled: true,
+      controller: controller,
       obscureText: isPassword ? true : false,
+      validator: validator,
       decoration: InputDecoration(
         contentPadding: const EdgeInsets.symmetric(
             horizontal: AppPadding.p12, vertical: AppPadding.p5),

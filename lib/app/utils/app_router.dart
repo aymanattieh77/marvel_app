@@ -12,6 +12,7 @@ import 'package:marvel_app/presentaion/on_borading/on_borading_screen.dart';
 import 'package:marvel_app/presentaion/sign_up_login/pages/login_signup_page.dart';
 
 import 'package:marvel_app/presentaion/splash/splash_screen.dart';
+import 'package:marvel_app/shared/cubits/authentication_cubit/authentication_cubit.dart';
 import 'package:marvel_app/shared/cubits/home_cubit/home_cubit.dart';
 
 class AppRouter {
@@ -31,7 +32,11 @@ class AppRouter {
       case AppRouter.onBorading:
         return MaterialPageRoute(builder: (ctx) => const OnBoardingScreen());
       case AppRouter.loginSignUp:
-        return MaterialPageRoute(builder: (ctx) => const LoginSignUpPage());
+        return MaterialPageRoute(
+            builder: (ctx) => BlocProvider(
+                  create: (context) => AuthenticationCubit(),
+                  child: const LoginSignUpPage(),
+                ));
       case AppRouter.home:
         setupHomeCubit();
         return MaterialPageRoute(

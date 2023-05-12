@@ -21,7 +21,7 @@ class TrendingTodayListView extends StatelessWidget {
         padding: const EdgeInsets.only(left: 16),
         physics: const BouncingScrollPhysics(),
         scrollDirection: Axis.horizontal,
-        itemCount: items.length - 1,
+        itemCount: items.length,
         itemBuilder: (context, index) {
           return GestureDetector(
             onTap: () {

@@ -22,7 +22,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    print('build');
     final cubit = BlocProvider.of<HomeCubit>(context);
     return BlocBuilder<HomeCubit, HomeState>(
       builder: (context, state) {
