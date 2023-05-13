@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_phoenix/flutter_phoenix.dart';
 
 import 'package:marvel_app/app/res/strings.dart';
 import 'package:marvel_app/app/res/styles.dart';
@@ -79,7 +80,7 @@ class MorePage extends StatelessWidget {
 
   signOut(BuildContext context) async {
     await FirebaseAuth.instance.signOut();
-    Navigator.of(context)
-        .pushReplacementNamed(AppRouter.loginSignUp, arguments: true);
+    // ignore: use_build_context_synchronously
+    Phoenix.rebirth(context);
   }
 }
