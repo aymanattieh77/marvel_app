@@ -9,6 +9,8 @@ abstract class AuthenticationState extends Equatable {
 
 class AuthenticationInitial extends AuthenticationState {}
 
+class ShowPassword extends AuthenticationState {}
+
 class AuthenticationFailure extends AuthenticationState {
   final String message;
   const AuthenticationFailure(this.message);

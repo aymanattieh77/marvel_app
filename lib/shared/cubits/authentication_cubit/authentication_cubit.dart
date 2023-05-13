@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:marvel_app/app/utils/functions.dart';
@@ -22,6 +22,15 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
     } else {
       isLogin = true;
       emit(LoginState());
+    }
+  }
+
+  initIsLogin(bool value) {
+    isLogin = value;
+    if (isLogin) {
+      emit(LoginState());
+    } else {
+      emit(RegisterState());
     }
   }
 

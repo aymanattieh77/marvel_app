@@ -64,8 +64,9 @@ class MorePage extends StatelessWidget {
                     title: AppStrings.doYouReallySignOut,
                     press: () async {
                       await FirebaseAuth.instance.signOut();
-                      Navigator.of(context)
-                          .pushReplacementNamed(AppRouter.loginSignUp);
+                      Navigator.of(context).pushReplacementNamed(
+                          AppRouter.loginSignUp,
+                          arguments: true);
                     },
                   ),
                 );

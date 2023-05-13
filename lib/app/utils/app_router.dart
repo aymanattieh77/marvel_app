@@ -32,10 +32,11 @@ class AppRouter {
       case AppRouter.onBorading:
         return MaterialPageRoute(builder: (ctx) => const OnBoardingScreen());
       case AppRouter.loginSignUp:
+        final args = settings.arguments as bool;
         return MaterialPageRoute(
             builder: (ctx) => BlocProvider(
                   create: (context) => AuthenticationCubit(),
-                  child: const LoginSignUpPage(),
+                  child: LoginSignUpPage(isLogin: args),
                 ));
       case AppRouter.home:
         setupHomeCubit();

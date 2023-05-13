@@ -9,12 +9,12 @@ import 'package:marvel_app/presentaion/sign_up_login/widgets/input_fields_sectio
 import 'package:marvel_app/shared/cubits/authentication_cubit/authentication_cubit.dart';
 
 class LoginSignUpPage extends StatelessWidget {
-  const LoginSignUpPage({super.key});
-
+  const LoginSignUpPage({super.key, required this.isLogin});
+  final bool isLogin;
   @override
   Widget build(BuildContext context) {
     final cubit = BlocProvider.of<AuthenticationCubit>(context);
-
+    cubit.initIsLogin(isLogin);
     return BlocBuilder<AuthenticationCubit, AuthenticationState>(
       builder: (context, state) {
         return Scaffold(
