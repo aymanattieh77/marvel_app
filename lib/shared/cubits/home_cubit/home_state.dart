@@ -17,6 +17,10 @@ class MovieSeriesFailure extends HomeState {
   });
 }
 
+class DownloadTab extends HomeState {}
+
+class WatchListTab extends HomeState {}
+
 class MovieSeriesLoaded extends HomeState {
   MovieSeriesLoaded();
 }

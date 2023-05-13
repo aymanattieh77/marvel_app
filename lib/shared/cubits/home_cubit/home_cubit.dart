@@ -29,6 +29,14 @@ class HomeCubit extends Cubit<HomeState> {
     }
   }
 
+  void downloadWatchlistTab(int index) {
+    if (index == 0) {
+      emit(DownloadTab());
+    } else {
+      emit(WatchListTab());
+    }
+  }
+
   changeTabIndex(int index) {
     tabIndex = index;
     emit(MovieSeriesTabIndexChange());

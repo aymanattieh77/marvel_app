@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
-import 'package:hive/hive.dart';
+
+import 'package:hive_flutter/adapters.dart';
 import 'package:marvel_app/app/utils/constants.dart';
 import 'package:marvel_app/data/local/local_data/movie_series_local_storage/movie_series_model_adapter.dart';
 import 'package:marvel_app/domain/models/move_series/movie_series_model.dart';
@@ -8,6 +9,7 @@ import 'package:path_provider/path_provider.dart';
 abstract class MarvelLocalStorage {
   Future<Box<MovieSeriesModel>> initHiveBox();
   Future<int> addToWatchList(MovieSeriesModel model);
+  ValueListenable<Box<MovieSeriesModel>> getMovieSeriesBox();
 }
 
 class MarvelLocalStorageImpl extends MarvelLocalStorage {
@@ -22,5 +24,12 @@ class MarvelLocalStorageImpl extends MarvelLocalStorage {
     Hive.init((await getApplicationDocumentsDirectory()).path);
     Hive.registerAdapter<MovieSeriesModel>(MovieSeriesModelAdapter());
     return await Hive.openBox<MovieSeriesModel>(AppConstants.moviesSeriesBox);
+  }
+
+  @override
+  ValueListenable<Box<MovieSeriesModel>> getMovieSeriesBox() {
+    final box = Hive.box<MovieSeriesModel>(AppConstants.moviesSeriesBox);
+
+    return box.listenable();
   }
 }
