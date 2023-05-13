@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import 'package:marvel_app/app/res/strings.dart';
@@ -57,8 +58,17 @@ class MorePage extends StatelessWidget {
             padding: const EdgeInsets.only(left: AppPadding.p20),
             child: InkWell(
               onTap: () {
-                showCustomDialog(context,
-                    const CustomDialog(title: AppStrings.doYouReallySignOut));
+                showCustomDialog(
+                  context,
+                  CustomDialog(
+                    title: AppStrings.doYouReallySignOut,
+                    press: () async {
+                      await FirebaseAuth.instance.signOut();
+                      Navigator.of(context)
+                          .pushReplacementNamed(AppRouter.loginSignUp);
+                    },
+                  ),
+                );
               },
               child:
                   const Text(AppStrings.signOut, style: AppStyles.textStyle20),

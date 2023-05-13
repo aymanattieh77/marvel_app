@@ -24,5 +24,7 @@ setupAppService() {
 }
 
 setupHomeCubit() {
-  getIt.registerFactory<HomeCubit>(() => HomeCubit(getIt()));
+  if (!GetIt.I.isRegistered<HomeCubit>()) {
+    getIt.registerFactory<HomeCubit>(() => HomeCubit(getIt()));
+  }
 }

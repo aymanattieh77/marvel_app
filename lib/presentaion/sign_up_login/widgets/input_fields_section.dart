@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:marvel_app/app/res/colors.dart';
+import 'package:marvel_app/app/utils/app_router.dart';
 import 'package:marvel_app/app/utils/functions.dart';
 import 'package:marvel_app/presentaion/common/widgets/custom_elevated_button.dart';
 import 'package:marvel_app/shared/cubits/authentication_cubit/authentication_cubit.dart';
@@ -61,8 +62,8 @@ class _InputFieldsSectionState extends State<InputFieldsSection> {
   _vaildation(BuildContext context) {
     if (globalKey.currentState!.validate()) {
       globalKey.currentState!.save();
-      BlocProvider.of<AuthenticationCubit>(context)
-          .signUpOrLogin(context, email.text, password.text);
+      final cubit = BlocProvider.of<AuthenticationCubit>(context);
+      cubit.signUpOrLogin(context, email.text, password.text);
     }
   }
 }

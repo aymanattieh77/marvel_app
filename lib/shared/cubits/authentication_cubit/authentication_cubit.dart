@@ -6,6 +6,8 @@ import 'package:marvel_app/app/utils/functions.dart';
 import 'package:marvel_app/shared/services/auth/auth_error.dart';
 import 'package:marvel_app/shared/services/auth/authentication.dart';
 
+import '../../../app/utils/app_router.dart';
+
 part 'authentication_state.dart';
 
 class AuthenticationCubit extends Cubit<AuthenticationState> {
@@ -31,7 +33,12 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
       },
       (userCredential) {
         emit(AuthenticationSuccess());
+        navigatingToHome(context);
       },
     );
+  }
+
+  navigatingToHome(BuildContext context) {
+    Navigator.of(context).pushReplacementNamed(AppRouter.home);
   }
 }

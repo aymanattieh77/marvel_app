@@ -6,8 +6,9 @@ import 'package:marvel_app/app/res/values.dart';
 import 'package:marvel_app/presentaion/common/widgets/custom_elevated_button.dart';
 
 class CustomDialog extends StatelessWidget {
-  const CustomDialog({super.key, required this.title});
+  const CustomDialog({super.key, required this.title, required this.press});
   final String title;
+  final void Function() press;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -29,9 +30,7 @@ class CustomDialog extends StatelessWidget {
                 Expanded(
                     child: CustomElevatedButton(
                         color: AppColor.red,
-                        press: () {
-                          Navigator.of(context).pop();
-                        },
+                        press: press,
                         title: AppStrings.yes)),
                 const SizedBox(width: 26),
                 Expanded(
