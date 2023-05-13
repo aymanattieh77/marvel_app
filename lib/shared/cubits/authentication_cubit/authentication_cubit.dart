@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -50,5 +51,27 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
 
   navigatingToHome(BuildContext context) {
     Navigator.of(context).pushReplacementNamed(AppRouter.home);
+  }
+
+  registerWithGoogle() async {
+    emit(AuthenticationLoading());
+    try {
+      await signInWithGoogle();
+      emit(AuthenticationSuccess());
+    } catch (e) {
+      print(e.toString());
+      emit(AuthenticationFailure(e.toString()));
+    }
+  }
+
+  registerWithFacebook() async {
+    emit(AuthenticationLoading());
+    try {
+      await signInWithFacebook();
+      emit(AuthenticationSuccess());
+    } catch (e) {
+      print(e.toString());
+      emit(AuthenticationFailure(e.toString()));
+    }
   }
 }

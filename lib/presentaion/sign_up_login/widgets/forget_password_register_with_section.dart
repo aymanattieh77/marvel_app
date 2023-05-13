@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:marvel_app/app/res/assets.dart';
 import 'package:marvel_app/app/res/strings.dart';
 import 'package:marvel_app/app/res/values.dart';
+import 'package:marvel_app/shared/cubits/authentication_cubit/authentication_cubit.dart';
 
 import '../../../app/res/colors.dart';
 import '../../../app/res/styles.dart';
@@ -45,9 +47,19 @@ class ForgetPasswordRegisterWithSection extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: AppPadding.p20),
           child: Row(
             children: [
-              SvgPicture.asset(AssetsIconPath.facebook),
+              GestureDetector(
+                  onTap: () {
+                    BlocProvider.of<AuthenticationCubit>(context)
+                        .registerWithFacebook();
+                  },
+                  child: SvgPicture.asset(AssetsIconPath.facebook)),
               const Spacer(),
-              SvgPicture.asset(AssetsIconPath.google)
+              GestureDetector(
+                  onTap: () {
+                    BlocProvider.of<AuthenticationCubit>(context)
+                        .registerWithGoogle();
+                  },
+                  child: SvgPicture.asset(AssetsIconPath.google))
             ],
           ),
         ),

@@ -40,11 +40,12 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.2
+  flutter_facebook_auth: ^5.0.11
   flutter_svg: ^2.0.5
   flutter_switch: ^0.3.2
   get_it: ^7.6.0
+  google_sign_in: ^6.1.0
   internet_connection_checker: ^1.0.0+1
-  
   jiffy: ^6.1.0
   retrofit: ^4.0.1
   smooth_page_indicator: ^1.1.0
@@ -56,7 +57,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   retrofit_generator: ^6.0.0+3
-  
+
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 # The following section is specific to Flutter packages.
