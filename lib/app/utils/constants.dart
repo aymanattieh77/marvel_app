@@ -7,4 +7,5 @@ abstract class AppConstants {
 
   static const int animationDurationSec2 = 2;
   static const String moviesSeriesAPI = 'https://mcuapi.herokuapp.com/api/v1/';
+  static const String moviesSeriesBox = 'Movie_Series_Box';
 }

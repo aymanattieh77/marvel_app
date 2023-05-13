@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hive/hive.dart';
+import 'package:marvel_app/app/utils/constants.dart';
 
 import 'package:marvel_app/presentaion/common/widgets/custom_marvel_navigation_bar.dart';
 import 'package:marvel_app/shared/cubits/home_cubit/home_cubit.dart';
@@ -25,6 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     final cubit = BlocProvider.of<HomeCubit>(context);
+
     return BlocBuilder<HomeCubit, HomeState>(
       builder: (context, state) {
         return Scaffold(

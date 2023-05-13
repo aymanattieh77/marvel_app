@@ -1,5 +1,6 @@
 import 'package:get_it/get_it.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
+import 'package:marvel_app/data/local/local_data/movie_series_local_storage/marvel_local_storage.dart';
 import 'package:marvel_app/data/remote/network/dio_factory.dart';
 import 'package:marvel_app/data/remote/network/network_info.dart';
 import 'package:marvel_app/data/repository/movie_series_repo_impl.dart';
@@ -27,5 +28,11 @@ setupAppService() {
 setupHomeCubit() {
   if (!GetIt.I.isRegistered<HomeCubit>()) {
     getIt.registerFactory<HomeCubit>(() => HomeCubit(getIt()));
+  }
+}
+
+setupLocalStorage() {
+  if (!GetIt.I.isRegistered<MarvelLocalStorage>()) {
+    getIt.registerFactory<MarvelLocalStorage>(() => MarvelLocalStorageImpl());
   }
 }
