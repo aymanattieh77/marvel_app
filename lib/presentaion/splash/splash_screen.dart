@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:marvel_app/app/res/assets.dart';
@@ -19,7 +20,7 @@ class _SplashScreenState extends State<SplashScreen>
   late Timer timer;
   late AnimationController _animationController;
   late Animation<double> _animation;
-
+  late StreamSubscription<User?> user;
   @override
   void initState() {
     super.initState();
@@ -54,7 +55,15 @@ class _SplashScreenState extends State<SplashScreen>
   }
 
   goNext() {
-    Navigator.of(context).pushReplacementNamed(AppRouter.onBorading);
+    user = FirebaseAuth.instance.authStateChanges().listen(
+      (user) {
+        if (user == null) {
+          Navigator.of(context).pushReplacementNamed(AppRouter.onBorading);
+        } else {
+          Navigator.of(context).pushReplacementNamed(AppRouter.home);
+        }
+      },
+    );
   }
 
   _initSplashScreen() {
@@ -79,6 +88,8 @@ class _SplashScreenState extends State<SplashScreen>
   @override
   void dispose() {
     _animationController.dispose();
+    user.cancel();
+
     super.dispose();
   }
 }

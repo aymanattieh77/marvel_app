@@ -63,10 +63,7 @@ class MorePage extends StatelessWidget {
                   CustomDialog(
                     title: AppStrings.doYouReallySignOut,
                     press: () async {
-                      await FirebaseAuth.instance.signOut();
-                      Navigator.of(context).pushReplacementNamed(
-                          AppRouter.loginSignUp,
-                          arguments: true);
+                      await signOut(context);
                     },
                   ),
                 );
@@ -78,5 +75,11 @@ class MorePage extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  signOut(BuildContext context) async {
+    await FirebaseAuth.instance.signOut();
+    Navigator.of(context)
+        .pushReplacementNamed(AppRouter.loginSignUp, arguments: true);
   }
 }
