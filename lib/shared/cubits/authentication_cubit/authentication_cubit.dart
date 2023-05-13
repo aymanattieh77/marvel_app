@@ -35,6 +35,7 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
   }
 
   signUpOrLogin(BuildContext context, String email, String password) async {
+    emit(AuthenticationLoading());
     (await registerOrLogin(email, password, isLogin)).fold(
       (authFailure) {
         emit(AuthenticationFailure(authFailure.toMessage()));

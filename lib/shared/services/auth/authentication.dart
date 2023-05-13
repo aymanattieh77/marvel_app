@@ -27,3 +27,9 @@ Future<Either<AuthFailure, UserCredential>> registerOrLogin(
     return Left(AuthFailure(e.toString()));
   }
 }
+
+User? getUserProfile() {
+  final user = FirebaseAuth.instance.currentUser;
+
+  return user;
+}

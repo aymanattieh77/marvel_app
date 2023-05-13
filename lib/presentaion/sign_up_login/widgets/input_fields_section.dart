@@ -47,12 +47,19 @@ class _InputFieldsSectionState extends State<InputFieldsSection> {
             },
           ),
           const SizedBox(height: AppSizes.s24),
-          CustomElevatedButton(
-            color: AppColor.black,
-            press: () {
-              _vaildation(context);
+          BlocBuilder<AuthenticationCubit, AuthenticationState>(
+            builder: (context, state) {
+              if (state is AuthenticationLoading) {
+                return const CircularProgressIndicator();
+              }
+              return CustomElevatedButton(
+                color: AppColor.black,
+                press: () {
+                  _vaildation(context);
+                },
+                title: widget.isLogin ? AppStrings.login : AppStrings.signup,
+              );
             },
-            title: widget.isLogin ? AppStrings.login : AppStrings.signup,
           ),
         ],
       ),

@@ -16,6 +16,8 @@ class AuthenticationFailure extends AuthenticationState {
   const AuthenticationFailure(this.message);
 }
 
+class AuthenticationLoading extends AuthenticationState {}
+
 class AuthenticationSuccess extends AuthenticationState {}
 
 class LoginState extends AuthenticationState {}
