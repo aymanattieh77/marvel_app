@@ -1,6 +1,6 @@
 import 'package:marvel_app/domain/models/move_series/movie_series_model.dart';
 
-import '../responses/movies_series_response/movies_series_data.dart';
+import '../remote/responses/movies_series_response/movies_series_data.dart';
 
 extension MoviesSeriesDataExtension on MoviesSeriesData {
   MovieSeriesModel toDomain() {

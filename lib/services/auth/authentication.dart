@@ -2,7 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:marvel_app/shared/services/auth/auth_error.dart';
+import 'package:marvel_app/services/auth/auth_error.dart';
 
 Future<Either<AuthFailure, UserCredential>> registerOrLogin(
     String email, String password, bool isUserLogin) async {

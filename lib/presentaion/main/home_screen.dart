@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:marvel_app/presentaion/common/widgets/custom_marvel_navigation_bar.dart';
 import 'package:marvel_app/shared/cubits/home_cubit/home_cubit.dart';
-import 'package:marvel_app/shared/services/auth/authentication.dart';
+import 'package:marvel_app/services/auth/authentication.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});

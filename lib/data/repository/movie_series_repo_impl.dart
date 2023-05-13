@@ -1,12 +1,15 @@
 import 'package:dio/dio.dart';
-import 'package:marvel_app/data/api_services/movies_series/movies_series_service.dart';
-import 'package:marvel_app/data/errors/error_handler.dart';
 import 'package:marvel_app/data/mappers/mappers.dart';
-import 'package:marvel_app/data/network/network_info.dart';
+
+import 'package:marvel_app/data/remote/errors/error_handler.dart';
+
+import 'package:marvel_app/data/remote/network/network_info.dart';
 import 'package:marvel_app/domain/models/move_series/movie_series_model.dart';
-import 'package:marvel_app/data/errors/failure.dart';
+import 'package:marvel_app/data/remote/errors/failure.dart';
 import 'package:dartz/dartz.dart';
 import 'package:marvel_app/domain/repository/movie_series_repository.dart';
+
+import '../remote/api_services/movies_series/movies_series_service.dart';
 
 class MovieSeriesRepositoryImpl implements MovieSeriesRepository {
   final MovieSeriesService _movieSeriesService;
