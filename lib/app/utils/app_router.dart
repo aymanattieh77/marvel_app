@@ -14,6 +14,7 @@ import 'package:marvel_app/presentaion/sign_up_login/pages/login_signup_page.dar
 import 'package:marvel_app/presentaion/splash/splash_screen.dart';
 import 'package:marvel_app/shared/cubits/authentication_cubit/authentication_cubit.dart';
 import 'package:marvel_app/shared/cubits/home_cubit/home_cubit.dart';
+import 'package:marvel_app/shared/cubits/marvel_cubit/marvel_cubit.dart';
 
 class AppRouter {
   static const splash = '/';
@@ -40,11 +41,7 @@ class AppRouter {
                 ));
       case AppRouter.home:
         setupHomeCubit();
-        return MaterialPageRoute(
-            builder: (ctx) => BlocProvider(
-                  create: (context) => getIt<HomeCubit>(),
-                  child: const HomeScreen(),
-                ));
+        return homeScreen();
       case AppRouter.moviePage:
         final args = settings.arguments as DetailPageArguments;
 
@@ -63,6 +60,18 @@ class AppRouter {
       default:
         return unknownFoundPage();
     }
+  }
+
+  static homeScreen() {
+    return MaterialPageRoute(
+      builder: (ctx) => MultiBlocProvider(
+        providers: [
+          BlocProvider(create: (context) => getIt<HomeCubit>()),
+          BlocProvider(create: (context) => getIt<MarvelCubit>())
+        ],
+        child: const HomeScreen(),
+      ),
+    );
   }
 
   static unknownFoundPage() {

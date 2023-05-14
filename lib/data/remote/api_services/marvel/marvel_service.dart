@@ -12,11 +12,11 @@ abstract class MarvelService {
   Future<MarvelDataWrapper> getComics(
       {@Query('apikey') String apikey = AppConstants.marvelAPIKey,
       @Query('hash') String hash = AppConstants.marvelHash,
-      @Query('st') int st = AppConstants.marvelSt});
+      @Query('ts') int st = AppConstants.marvelSt});
 
   @GET('characters')
   Future<MarvelDataWrapper> getCharacters(
       {@Query('apikey') String apikey = AppConstants.marvelAPIKey,
       @Query('hash') String hash = AppConstants.marvelHash,
-      @Query('st') int st = AppConstants.marvelSt});
+      @Query('ts') int st = AppConstants.marvelSt});
 }

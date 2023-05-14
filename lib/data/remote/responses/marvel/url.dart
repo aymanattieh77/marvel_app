@@ -1,13 +1,19 @@
 class Url {
-  Url();
-
-  factory Url.fromJson(Map<String, dynamic> json) {
-    // TODO: implement fromJson
-    throw UnimplementedError('Url.fromJson($json) is not implemented');
-  }
+  String? type;
+  String? url;
+  Url(this.type, this.url);
 
   Map<String, dynamic> toJson() {
-    // TODO: implement toJson
-    throw UnimplementedError();
+    return <String, dynamic>{
+      'type': type,
+      'url': url,
+    };
+  }
+
+  factory Url.fromJson(Map<String, dynamic> json) {
+    return Url(
+      json['type'] != null ? json['type'] as String : null,
+      json['url'] != null ? json['url'] as String : null,
+    );
   }
 }

@@ -63,7 +63,7 @@ extension MarvelResultExtension on Result {
   String getThumbnail() {
     if (thumbnail != null) {
       if (thumbnail!.extension != null && thumbnail!.path != null) {
-        return '${thumbnail!.path}${thumbnail!.extension}';
+        return '${thumbnail!.path}.${thumbnail!.extension}';
       } else {
         return '';
       }

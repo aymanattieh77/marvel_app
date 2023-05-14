@@ -30,7 +30,7 @@ class _MarvelService implements MarvelService {
     final queryParameters = <String, dynamic>{
       r'apikey': apikey,
       r'hash': hash,
-      r'st': st,
+      r'ts': st,
     };
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
@@ -61,7 +61,7 @@ class _MarvelService implements MarvelService {
     final queryParameters = <String, dynamic>{
       r'apikey': apikey,
       r'hash': hash,
-      r'st': st,
+      r'ts': st,
     };
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;

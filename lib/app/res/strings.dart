@@ -89,6 +89,8 @@ abstract class AppStrings {
   static const String download = 'Download';
   static const String trailer = 'Trailer';
   static const String more = 'More';
+  static const String comics = 'Comics';
+  static const String charcaters = 'Charcaters';
   static const String cast = 'Cast';
   static const String addToWatchlist = '+Add to Watchlist';
   static const String watchlist = 'Watchlist';
