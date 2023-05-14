@@ -1,12 +1,12 @@
 class Price {
   String? type;
-  int? price;
+  double? price;
 
   Price({this.type, this.price});
 
   factory Price.fromJson(Map<String, dynamic> json) => Price(
         type: json['type'] as String?,
-        price: json['price'] as int?,
+        price: json['price'] as double?,
       );
 
   Map<String, dynamic> toJson() => {
