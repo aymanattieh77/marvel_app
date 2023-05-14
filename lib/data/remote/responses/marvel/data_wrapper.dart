@@ -1,17 +1,18 @@
 import 'data_container.dart';
 
-class DataWrapper {
+class MarvelDataWrapper {
   int? code;
   String? status;
   DataContainer? data;
 
-  DataWrapper({
+  MarvelDataWrapper({
     this.code,
     this.status,
     this.data,
   });
 
-  factory DataWrapper.fromJson(Map<String, dynamic> json) => DataWrapper(
+  factory MarvelDataWrapper.fromJson(Map<String, dynamic> json) =>
+      MarvelDataWrapper(
         code: json['code'] as int?,
         status: json['status'] as String?,
         data: json['data'] == null
