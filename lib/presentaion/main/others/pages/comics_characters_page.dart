@@ -25,7 +25,6 @@ class ComicsCharacterPage extends StatelessWidget {
             BlocProvider.of<MarvelCubit>(context).changeTabIndex(index);
           },
         ),
-        const SizedBox(height: AppSizes.s20),
         const SizedBox(height: AppSizes.s12),
         BlocBuilder<MarvelCubit, MarvelState>(
           builder: (context, state) {

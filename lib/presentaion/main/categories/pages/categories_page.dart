@@ -24,10 +24,6 @@ class CategoriesPage extends StatelessWidget {
             BlocProvider.of<HomeCubit>(context).changeTabIndex(index);
           },
         ),
-        const SizedBox(height: AppSizes.s20),
-        FilteringMoviesSeries(onPress: (index) {
-          print(index);
-        }),
         const SizedBox(height: AppSizes.s12),
         BlocBuilder<HomeCubit, HomeState>(
           builder: (context, state) {
