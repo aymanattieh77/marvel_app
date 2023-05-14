@@ -48,6 +48,12 @@ class MorePage extends StatelessWidget {
           ListTileSettings(title: AppStrings.legal, press: () {}),
           ListTileSettings(title: AppStrings.support, press: () {}),
           ListTileSettings(title: AppStrings.privacySettings, press: () {}),
+          ListTileSettings(
+            title: AppStrings.downloadAndWatchList,
+            press: () {
+              Navigator.of(context).pushNamed(AppRouter.downloadWatchList);
+            },
+          ),
           ListTileSettings(title: AppStrings.parentalControl, press: () {}),
           const SizedBox(height: AppSizes.s28),
           const Padding(

@@ -4,8 +4,8 @@ import 'package:marvel_app/app/res/styles.dart';
 import 'package:marvel_app/app/res/values.dart';
 import 'package:marvel_app/presentaion/main/more/widgets/custom_appbar.dart';
 
-class AccountPage extends StatelessWidget {
-  const AccountPage({super.key});
+class AccountScreen extends StatelessWidget {
+  const AccountScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

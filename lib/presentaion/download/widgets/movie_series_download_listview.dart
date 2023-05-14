@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:marvel_app/app/res/values.dart';
-import 'package:marvel_app/presentaion/main/downloads/widgets/movie_series_download_card.dart';
+import 'package:marvel_app/presentaion/download/widgets/movie_series_download_card.dart';
 
 class MovieSeriesDownloadListview extends StatelessWidget {
   const MovieSeriesDownloadListview({super.key});

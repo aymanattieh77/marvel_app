@@ -49,7 +49,7 @@ class CustomMarvelNavigationBar extends StatelessWidget {
               colorFilter:
                   const ColorFilter.mode(AppColor.red, BlendMode.srcIn),
             ),
-            label: AppStrings.downloads,
+            label: AppStrings.others,
           ),
           BottomNavigationBarItem(
             icon: SvgPicture.asset(AssetsIconPath.elementPlus),

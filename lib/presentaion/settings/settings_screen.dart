@@ -1,6 +1,5 @@
-import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_switch/flutter_switch.dart';
+
 import 'package:marvel_app/app/res/colors.dart';
 
 import 'package:marvel_app/app/res/strings.dart';
@@ -8,8 +7,8 @@ import 'package:marvel_app/app/res/styles.dart';
 import 'package:marvel_app/app/res/values.dart';
 import 'package:marvel_app/presentaion/main/more/widgets/custom_appbar.dart';
 
-class SettingPage extends StatelessWidget {
-  const SettingPage({super.key});
+class SettingScreen extends StatelessWidget {
+  const SettingScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

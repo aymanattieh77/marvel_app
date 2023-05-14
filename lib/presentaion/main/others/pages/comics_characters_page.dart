@@ -8,7 +8,7 @@ import 'package:marvel_app/app/res/values.dart';
 import 'package:marvel_app/domain/models/marvel/character.dart';
 import 'package:marvel_app/domain/models/marvel/comics.dart';
 import 'package:marvel_app/presentaion/common/widgets/custom_animated_toggle.dart';
-import 'package:marvel_app/presentaion/main/downloads/widgets/comics_characters_girdview.dart';
+import 'package:marvel_app/presentaion/main/others/widgets/comics_characters_girdview.dart';
 
 import 'package:marvel_app/shared/cubits/marvel_cubit/marvel_cubit.dart';
 

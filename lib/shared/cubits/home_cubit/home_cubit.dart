@@ -5,11 +5,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:marvel_app/domain/models/move_series/movie_series_model.dart';
 import 'package:marvel_app/domain/repository/movie_series_repository.dart';
 import 'package:marvel_app/presentaion/main/categories/pages/categories_page.dart';
-import 'package:marvel_app/presentaion/main/downloads/pages/watch_list_download_page.dart';
+
 import 'package:marvel_app/presentaion/main/home/pages/home_page.dart';
 import 'package:marvel_app/presentaion/main/more/pages/more_page.dart';
 
-import '../../../presentaion/main/downloads/pages/comics_characters_page.dart';
+import '../../../presentaion/main/others/pages/comics_characters_page.dart';
 
 part 'home_state.dart';
 

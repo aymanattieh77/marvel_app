@@ -5,8 +5,8 @@ import 'package:marvel_app/domain/models/move_series/movie_series_model.dart';
 
 import 'package:marvel_app/presentaion/main/home/pages/detail_page.dart';
 import 'package:marvel_app/presentaion/main/home_screen.dart';
-import 'package:marvel_app/presentaion/main/more/pages/account_page.dart';
-import 'package:marvel_app/presentaion/main/more/pages/setting_page.dart';
+import 'package:marvel_app/presentaion/account/account_screen.dart';
+import 'package:marvel_app/presentaion/settings/settings_screen.dart';
 import 'package:marvel_app/presentaion/on_borading/on_borading_screen.dart';
 
 import 'package:marvel_app/presentaion/sign_up_login/pages/login_signup_page.dart';
@@ -15,6 +15,8 @@ import 'package:marvel_app/presentaion/splash/splash_screen.dart';
 import 'package:marvel_app/shared/cubits/authentication_cubit/authentication_cubit.dart';
 import 'package:marvel_app/shared/cubits/home_cubit/home_cubit.dart';
 import 'package:marvel_app/shared/cubits/marvel_cubit/marvel_cubit.dart';
+
+import '../../presentaion/download/watch_list_download_screen.dart';
 
 class AppRouter {
   static const splash = '/';
@@ -25,6 +27,7 @@ class AppRouter {
   static const moviePage = '/movie_page';
   static const accountPage = '/account_page';
   static const settingPage = '/setting_page';
+  static const downloadWatchList = '/download_watch_list';
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -54,9 +57,12 @@ class AppRouter {
           ),
         );
       case AppRouter.settingPage:
-        return MaterialPageRoute(builder: (ctx) => const SettingPage());
+        return MaterialPageRoute(builder: (ctx) => const SettingScreen());
+      case AppRouter.downloadWatchList:
+        return MaterialPageRoute(
+            builder: (ctx) => const WatchListDownloadScreen());
       case AppRouter.accountPage:
-        return MaterialPageRoute(builder: (ctx) => const AccountPage());
+        return MaterialPageRoute(builder: (ctx) => const AccountScreen());
       default:
         return unknownFoundPage();
     }

@@ -86,6 +86,8 @@ abstract class AppStrings {
   static const String home = 'Home';
   static const String categories = 'Categories';
   static const String downloads = 'Downloads';
+  static const String others = 'Others';
+
   static const String download = 'Download';
   static const String trailer = 'Trailer';
   static const String more = 'More';
@@ -109,6 +111,7 @@ abstract class AppStrings {
   static const String support = 'Support';
   static const String privacySettings = 'Privacy Settings';
   static const String parentalControl = 'Parental Control';
+  static const String downloadAndWatchList = 'Download & Watchlist ';
   static const String signOut = 'Sign Out';
   static const String generalSettings = 'General Settings';
   static const String autoplay = 'Autoplay';
