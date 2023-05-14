@@ -128,8 +128,7 @@ abstract class AppStrings {
   static const String createProfile = 'Create Profile';
   static const String doYouReallySignOut = 'Do you really want to Sign Out?';
 
-
-   // handle error
+  // handle error
   static const String statusOk = 'ok';
   static const String noContent = 'no content';
   static const String notfound = 'not found';

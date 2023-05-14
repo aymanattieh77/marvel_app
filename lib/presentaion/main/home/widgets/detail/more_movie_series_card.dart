@@ -8,7 +8,9 @@ import 'package:cached_network_image/cached_network_image.dart';
 class MoreMovieSeriesCard extends StatelessWidget {
   const MoreMovieSeriesCard({
     super.key,
-    required this.imageUrl, required this.title, required this.releaseYear,
+    required this.imageUrl,
+    required this.title,
+    required this.releaseYear,
   });
   final String imageUrl;
   final String title;

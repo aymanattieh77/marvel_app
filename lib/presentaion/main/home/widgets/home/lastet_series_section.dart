@@ -4,6 +4,7 @@ import 'package:marvel_app/app/res/strings.dart';
 
 import 'package:marvel_app/app/res/styles.dart';
 import 'package:marvel_app/app/res/values.dart';
+import 'package:marvel_app/app/utils/functions.dart';
 import 'package:marvel_app/presentaion/common/state_renderer/custom_error_widget.dart';
 import 'package:marvel_app/shared/cubits/home_cubit/home_cubit.dart';
 
@@ -29,7 +30,11 @@ class LastetSeriesSection extends StatelessWidget {
             if (state is MovieSeriesLoading) {
               return const LastetMovieSeriesLoading();
             } else if (state is MovieSeriesFailure) {
-              return CustomErrorWidget(message: state.message);
+              WidgetsBinding.instance.addPostFrameCallback((_) {
+                showCustomDialog(
+                    context, CustomErrorWidget(message: state.message));
+              });
+              return Container();
             } else if (state is MovieSeriesLoaded) {
               final series = BlocProvider.of<HomeCubit>(context).series;
               return LastetMoviesSeriesListView(items: series);

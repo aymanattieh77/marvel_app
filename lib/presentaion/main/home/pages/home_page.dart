@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'package:marvel_app/app/res/strings.dart';
 import 'package:marvel_app/app/res/values.dart';
 import 'package:marvel_app/presentaion/main/home/widgets/home/custom_home_appbar.dart';

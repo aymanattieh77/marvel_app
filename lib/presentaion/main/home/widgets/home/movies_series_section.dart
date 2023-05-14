@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:marvel_app/app/res/strings.dart';
 import 'package:marvel_app/app/res/styles.dart';
 import 'package:marvel_app/app/res/values.dart';
+import 'package:marvel_app/app/utils/functions.dart';
 import 'package:marvel_app/domain/models/move_series/movie_series_model.dart';
 import 'package:marvel_app/presentaion/common/state_renderer/custom_error_widget.dart';
 import 'package:marvel_app/presentaion/common/state_renderer/trending_today_loading.dart';
@@ -27,7 +28,11 @@ class MoviesSeriesSection extends StatelessWidget {
           if (state is MovieSeriesLoading) {
             return const TrendingTodayLoading();
           } else if (state is MovieSeriesFailure) {
-            return CustomErrorWidget(message: state.message);
+            WidgetsBinding.instance.addPostFrameCallback((_) {
+              showCustomDialog(
+                  context, CustomErrorWidget(message: state.message));
+            });
+            return Container();
           } else if (state is MovieSeriesLoaded) {
             final items = getMoviesSeries(context);
 
