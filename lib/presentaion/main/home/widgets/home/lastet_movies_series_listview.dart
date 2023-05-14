@@ -25,13 +25,16 @@ class LastetMoviesSeriesListView extends StatelessWidget {
       ),
     );
 
-    return CarouselSlider(
-      items: cardItems,
-      options: CarouselOptions(
-        initialPage: 0,
-        autoPlay: true,
-        enlargeCenterPage: true,
-        enlargeFactor: 0.3,
+    return SizedBox(
+      height: MediaQuery.of(context).size.height * 0.3,
+      child: CarouselSlider(
+        items: cardItems,
+        options: CarouselOptions(
+          initialPage: 0,
+          autoPlay: true,
+          enlargeCenterPage: true,
+          enlargeFactor: 0.3,
+        ),
       ),
     );
   }

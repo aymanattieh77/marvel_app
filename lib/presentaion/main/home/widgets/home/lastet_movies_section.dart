@@ -4,6 +4,7 @@ import 'package:marvel_app/app/res/strings.dart';
 
 import 'package:marvel_app/app/res/styles.dart';
 import 'package:marvel_app/app/res/values.dart';
+import 'package:marvel_app/presentaion/common/state_renderer/lastet_movie_series_loading.dart';
 import 'package:marvel_app/shared/cubits/home_cubit/home_cubit.dart';
 
 import 'lastet_movies_series_listview.dart';
@@ -25,7 +26,7 @@ class LastetMoviesSection extends StatelessWidget {
         BlocBuilder<HomeCubit, HomeState>(
           builder: (context, state) {
             if (state is MovieSeriesLoading) {
-              return const CircularProgressIndicator();
+              return const LastetMovieSeriesLoading();
             } else if (state is MovieSeriesFailure) {
               return Container(height: 20, color: Colors.red);
             } else if (state is MovieSeriesLoaded) {
