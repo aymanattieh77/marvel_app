@@ -32,24 +32,16 @@ class WatchListDownloadPage extends StatelessWidget {
               BlocProvider.of<HomeCubit>(context).downloadWatchlistTab(index);
             }),
         const SizedBox(height: AppSizes.s16),
-        BlocBuilder<HomeCubit, HomeState>(
-          builder: (context, state) {
-            if (state is DownloadTab) {
-              return const MovieSeriesDownloadListview();
-            } else if (state is WatchListTab) {
-              return ValueListenableBuilder<Box<MovieSeriesModel>>(
-                valueListenable:
-                    getIt<MarvelLocalStorage>().getMovieSeriesBox(),
-                builder: (context, value, child) {
-                  return CategoriesMovieSeriesGridview(
-                      items: value.values.toList());
-                },
-              );
-            } else {
-              return Container();
-            }
-          },
-        ),
+        if (BlocProvider.of<HomeCubit>(context).downloadwatchlistTab == 0)
+          const MovieSeriesDownloadListview(),
+        if (BlocProvider.of<HomeCubit>(context).downloadwatchlistTab == 1)
+          ValueListenableBuilder<Box<MovieSeriesModel>>(
+            valueListenable: getIt<MarvelLocalStorage>().getMovieSeriesBox(),
+            builder: (context, value, child) {
+              return CategoriesMovieSeriesGridview(
+                  items: value.values.toList());
+            },
+          ),
       ],
     );
   }

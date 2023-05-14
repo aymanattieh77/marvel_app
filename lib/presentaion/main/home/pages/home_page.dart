@@ -26,7 +26,7 @@ class HomePage extends StatelessWidget {
               LastetMoviesSection(),
               LastetSeriesSection(),
               MoviesSeriesSection(title: AppStrings.trendingToday),
-              MoviesSeriesSection(title: AppStrings.oldMovies),
+              MoviesSeriesSection(title: AppStrings.oldSeries),
               ComicsSection(),
               CharacterSection(),
               SizedBox(height: AppSizes.s60),

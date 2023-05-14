@@ -9,6 +9,8 @@ import 'package:marvel_app/presentaion/main/downloads/pages/watch_list_download_
 import 'package:marvel_app/presentaion/main/home/pages/home_page.dart';
 import 'package:marvel_app/presentaion/main/more/pages/more_page.dart';
 
+import '../../../presentaion/main/downloads/pages/comics_characters_page.dart';
+
 part 'home_state.dart';
 
 class HomeCubit extends Cubit<HomeState> {
@@ -17,6 +19,7 @@ class HomeCubit extends Cubit<HomeState> {
 
   int currnetIndex = 0;
   int tabIndex = 0;
+  int downloadwatchlistTab = 0;
   List<MovieSeriesModel> movies = [];
   List<MovieSeriesModel> series = [];
   List<MovieSeriesModel> watchList = [];
@@ -31,9 +34,9 @@ class HomeCubit extends Cubit<HomeState> {
 
   void downloadWatchlistTab(int index) {
     if (index == 0) {
-      emit(DownloadTab());
+      downloadwatchlistTab = 0;
     } else {
-      emit(WatchListTab());
+      downloadwatchlistTab = 1;
     }
   }
 
@@ -46,7 +49,7 @@ class HomeCubit extends Cubit<HomeState> {
   final pages = const [
     HomePage(),
     CategoriesPage(),
-    WatchListDownloadPage(),
+    ComicsCharacterPage(),
     MorePage(),
   ];
   changeIndex(int index) {

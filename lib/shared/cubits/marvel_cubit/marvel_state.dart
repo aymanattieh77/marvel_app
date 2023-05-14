@@ -9,6 +9,10 @@ abstract class MarvelState extends Equatable {
 
 class MarvelInitial extends MarvelState {}
 
+class CharacterComicsTabIndexChange extends MarvelState {}
+
+class CharacterComicsLoaded extends MarvelState {}
+
 // class ComicsLoading extends MarvelState {}
 
 // class ComicsFailure extends MarvelState {

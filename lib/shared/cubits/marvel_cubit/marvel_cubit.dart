@@ -13,6 +13,30 @@ class MarvelCubit extends Cubit<MarvelState> {
 
   List<ComicsModel> comics = [];
   List<CharacterModel> characters = [];
+  int tabIndex = 0;
+
+  changeTabIndex(int index) {
+    tabIndex = index;
+    emit(CharacterComicsTabIndexChange());
+    loadedCharcatersComics();
+  }
+
+  List<dynamic> getComicsOrCharacters() {
+    if (tabIndex == 1) {
+      return comics;
+    } else {
+      return characters;
+    }
+  }
+
+  loadedCharcatersComics() {
+    if (comics.isNotEmpty && characters.isNotEmpty) {
+      emit(CharactersComicsSuccess(comics));
+    } else {
+      getCharacters();
+      getComics();
+    }
+  }
 
   void getComics() async {
     emit(CharactersComicsLoading());
