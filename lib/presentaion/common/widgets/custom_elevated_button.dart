@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:marvel_app/app/res/colors.dart';
 import 'package:marvel_app/app/res/styles.dart';
-import 'package:marvel_app/app/res/values.dart';
 
 class CustomElevatedButton extends StatelessWidget {
   const CustomElevatedButton(

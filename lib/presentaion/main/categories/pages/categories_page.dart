@@ -6,7 +6,6 @@ import 'package:marvel_app/app/res/strings.dart';
 
 import 'package:marvel_app/app/res/values.dart';
 import 'package:marvel_app/presentaion/common/widgets/custom_animated_toggle.dart';
-import 'package:marvel_app/presentaion/main/categories/widgets/filtering_movies_series.dart';
 import 'package:marvel_app/shared/cubits/home_cubit/home_cubit.dart';
 
 import '../widgets/categories_movie_series_girdview.dart';

@@ -1,33 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:hive_flutter/adapters.dart';
-import 'package:marvel_app/app/di/service_locator.dart';
-
-import 'package:marvel_app/app/res/strings.dart';
 import 'package:marvel_app/app/res/values.dart';
 
-import 'package:marvel_app/data/local/local_data/movie_series_local_storage/marvel_local_storage.dart';
-
-import 'package:marvel_app/domain/models/move_series/movie_series_model.dart';
-import 'package:marvel_app/presentaion/common/widgets/custom_animated_toggle.dart';
-import 'package:marvel_app/presentaion/download/widgets/movie_series_download_listview.dart';
 import 'package:marvel_app/presentaion/main/home/widgets/home/custom_home_appbar.dart';
-import 'package:marvel_app/shared/cubits/home_cubit/home_cubit.dart';
-
-import '../main/categories/widgets/categories_movie_series_girdview.dart';
 
 class WatchListDownloadScreen extends StatelessWidget {
   const WatchListDownloadScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: SafeArea(
         child: Column(
           children: [
-            const CustomHomeAppBar(),
-            const SizedBox(height: AppSizes.s24),
+            CustomHomeAppBar(),
+            SizedBox(height: AppSizes.s24),
             // CustomAnimatedToggle(
             //     values: const [AppStrings.download, AppStrings.watchlist],
             //     onPress: (index) {

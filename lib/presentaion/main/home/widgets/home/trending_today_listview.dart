@@ -1,7 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:marvel_app/app/res/assets.dart';
 import 'package:marvel_app/domain/models/move_series/movie_series_model.dart';
 import 'package:marvel_app/shared/cubits/home_cubit/home_cubit.dart';
 

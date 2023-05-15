@@ -4,7 +4,6 @@ import 'package:marvel_app/app/res/assets.dart';
 import 'package:marvel_app/app/res/colors.dart';
 import 'package:marvel_app/app/res/styles.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:marvel_app/app/res/values.dart';
 
 class CardDetailsSection extends StatelessWidget {
   const CardDetailsSection({

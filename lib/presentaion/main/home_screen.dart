@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hive/hive.dart';
-import 'package:marvel_app/app/utils/constants.dart';
 
 import 'package:marvel_app/presentaion/common/widgets/custom_marvel_navigation_bar.dart';
 import 'package:marvel_app/shared/cubits/home_cubit/home_cubit.dart';
-import 'package:marvel_app/services/auth/authentication.dart';
 import 'package:marvel_app/shared/cubits/marvel_cubit/marvel_cubit.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -26,7 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ..getCharacters()
       ..getComics();
 
-    final user = getUserProfile();
+    //final user = getUserProfile();
   }
 
   @override
