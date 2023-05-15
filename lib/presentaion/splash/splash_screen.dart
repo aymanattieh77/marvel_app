@@ -7,7 +7,7 @@ import 'package:marvel_app/app/res/assets.dart';
 import 'package:marvel_app/app/res/colors.dart';
 
 import 'package:marvel_app/app/utils/constants.dart';
-import 'package:marvel_app/shared/cubits/app_cubit/splash_cubit.dart';
+import 'package:marvel_app/shared/cubits/splash_cubit/splash_cubit.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
