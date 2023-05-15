@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "713930171176",
+    "project_id": "marvel-register",
+    "storage_bucket": "marvel-register.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:713930171176:android:5fd2241a18c2e707a9661d",
+        "android_client_info": {
+          "package_name": "com.example.marvel_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "713930171176-aqjpmv4m079bdo182viteddqa449le14.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.marvel_app",
+            "certificate_hash": "a3fcb462f906db7f0b30a0d02b0ce14b73382f94"
+          }
+        },
+        {
+          "client_id": "713930171176-dn6f7ec80tqpgise16gk840k5506fls1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCnqUOCA6bklfo-1Wj6BlXeOniZQ9J0-oc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "713930171176-dn6f7ec80tqpgise16gk840k5506fls1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
