@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:marvel_app/app/di/service_locator.dart';
-import 'package:marvel_app/domain/models/move_series/movie_series_model.dart';
 
 import 'package:marvel_app/presentaion/main/home/pages/detail_page.dart';
 import 'package:marvel_app/presentaion/main/home_screen.dart';
@@ -12,6 +11,7 @@ import 'package:marvel_app/presentaion/on_borading/on_borading_screen.dart';
 import 'package:marvel_app/presentaion/sign_up_login/pages/login_signup_page.dart';
 
 import 'package:marvel_app/presentaion/splash/splash_screen.dart';
+import 'package:marvel_app/shared/cubits/app_cubit/splash_cubit.dart';
 import 'package:marvel_app/shared/cubits/authentication_cubit/authentication_cubit.dart';
 import 'package:marvel_app/shared/cubits/home_cubit/home_cubit.dart';
 import 'package:marvel_app/shared/cubits/marvel_cubit/marvel_cubit.dart';
@@ -32,43 +32,28 @@ class AppRouter {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case AppRouter.splash:
-        return MaterialPageRoute(builder: (ctx) => const SplashScreen());
+        return splashScreen();
       case AppRouter.onBorading:
-        return MaterialPageRoute(builder: (ctx) => const OnBoardingScreen());
+        return onBoardingScreen();
       case AppRouter.loginSignUp:
-        final args = settings.arguments as bool;
-        return MaterialPageRoute(
-            builder: (ctx) => BlocProvider(
-                  create: (context) => AuthenticationCubit(),
-                  child: LoginSignUpPage(isLogin: args),
-                ));
+        return loginSignUpScreen(settings);
       case AppRouter.home:
-        setupHomeCubit();
         return homeScreen();
       case AppRouter.moviePage:
-        final args = settings.arguments as DetailPageArguments;
-
-        return MaterialPageRoute(
-          builder: (ctx) => BlocProvider.value(
-            value: args.homeCubit,
-            child: DetailPage(
-              args: args,
-            ),
-          ),
-        );
+        return detailScreen(settings);
       case AppRouter.settingPage:
-        return MaterialPageRoute(builder: (ctx) => const SettingScreen());
+        return settingsScreen();
       case AppRouter.downloadWatchList:
-        return MaterialPageRoute(
-            builder: (ctx) => const WatchListDownloadScreen());
+        return watchListDownloadScreen();
       case AppRouter.accountPage:
-        return MaterialPageRoute(builder: (ctx) => const AccountScreen());
+        return accountScreen();
       default:
         return unknownFoundPage();
     }
   }
 
   static homeScreen() {
+    setupHomeCubit();
     return MaterialPageRoute(
       builder: (ctx) => MultiBlocProvider(
         providers: [
@@ -76,6 +61,55 @@ class AppRouter {
           BlocProvider(create: (context) => getIt<MarvelCubit>())
         ],
         child: const HomeScreen(),
+      ),
+    );
+  }
+
+  static settingsScreen() {
+    return MaterialPageRoute(builder: (ctx) => const SettingScreen());
+  }
+
+  static onBoardingScreen() {
+    return MaterialPageRoute(builder: (ctx) => const OnBoardingScreen());
+  }
+
+  static watchListDownloadScreen() {
+    return MaterialPageRoute(builder: (ctx) => const WatchListDownloadScreen());
+  }
+
+  static accountScreen() {
+    return MaterialPageRoute(builder: (ctx) => const AccountScreen());
+  }
+
+  static loginSignUpScreen(RouteSettings settings) {
+    final args = settings.arguments as bool;
+    return MaterialPageRoute(
+      builder: (ctx) => BlocProvider(
+        create: (context) => AuthenticationCubit(),
+        child: LoginSignUpPage(isLogin: args),
+      ),
+    );
+  }
+
+  static detailScreen(RouteSettings settings) {
+    final args = settings.arguments as DetailPageArguments;
+
+    return MaterialPageRoute(
+      builder: (ctx) => BlocProvider.value(
+        value: args.homeCubit,
+        child: DetailPage(
+          args: args,
+        ),
+      ),
+    );
+  }
+
+  static splashScreen() {
+    setupSplashCubit();
+    return MaterialPageRoute(
+      builder: (ctx) => BlocProvider(
+        create: (context) => getIt<SplashCubit>(),
+        child: const SplashScreen(),
       ),
     );
   }

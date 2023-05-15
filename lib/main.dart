@@ -13,7 +13,7 @@ void main() async {
   await Firebase.initializeApp();
 
   Bloc.observer = MyBlocObserver();
-  setupAppService();
+  await setupAppService();
   setupLocalStorage();
   await getIt<MarvelLocalStorage>().initHiveBox();
 

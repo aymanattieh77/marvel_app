@@ -10,6 +10,9 @@ import 'package:marvel_app/presentaion/on_borading/on_Boarding_dummy.dart';
 import 'package:marvel_app/presentaion/on_borading/onboarding_stack_widget.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
+import '../../app/di/service_locator.dart';
+import '../../app/prefs/prefs.dart';
+
 class OnBoardingScreen extends StatefulWidget {
   const OnBoardingScreen({super.key});
 
@@ -26,6 +29,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen>
   @override
   void initState() {
     super.initState();
+    completeOBoarding();
     _initAnimation();
     _startAnimation();
   }
@@ -118,6 +122,10 @@ class _OnBoardingScreenState extends State<OnBoardingScreen>
     _animation =
         Tween<Offset>(begin: const Offset(0, 300), end: const Offset(0, 220))
             .animate(_animationController);
+  }
+
+  completeOBoarding() {
+    getIt<AppPrefs>().setOnBoardingComplete();
   }
 
   _startAnimation() {

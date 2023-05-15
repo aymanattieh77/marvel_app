@@ -51,8 +51,8 @@ dependencies:
   internet_connection_checker: ^1.0.0+1
   jiffy: ^6.1.0
   path_provider: ^2.0.15
-  
   retrofit: ^4.0.1
+  shared_preferences: ^2.1.1
   skeletons: ^0.0.3
   smooth_page_indicator: ^1.1.0
   url_launcher: ^6.1.10
