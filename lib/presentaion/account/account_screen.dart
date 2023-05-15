@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:marvel_app/app/res/strings.dart';
 import 'package:marvel_app/app/res/styles.dart';
 import 'package:marvel_app/app/res/values.dart';
+import 'package:marvel_app/presentaion/common/widgets/custom_profile_avatar.dart';
 import 'package:marvel_app/presentaion/main/more/widgets/custom_appbar.dart';
 
 class AccountScreen extends StatelessWidget {
@@ -34,17 +35,20 @@ class AccountScreen extends StatelessWidget {
   }
 
   _cricleAvater() {
-    return Column(
-      children: const [
-        CircleAvatar(
-          radius: 50,
-          backgroundColor: Colors.red,
-        ),
-        SizedBox(
-          height: 4,
-        ),
-        Text('UIUXDIVYANSHU', style: AppStyles.textstyle18)
-      ],
+    return const Expanded(
+      child: Column(
+        children: [
+          CustomProfileAvatar(),
+          SizedBox(
+            height: 4,
+          ),
+          Text(
+            'UIUXDIVYANSHU',
+            style: AppStyles.textstyle18,
+            maxLines: 1,
+          ),
+        ],
+      ),
     );
   }
 }

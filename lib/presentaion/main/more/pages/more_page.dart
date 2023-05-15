@@ -2,13 +2,14 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
 
-import 'package:marvel_app/app/res/strings.dart';
-import 'package:marvel_app/app/res/styles.dart';
-import 'package:marvel_app/app/res/values.dart';
+import 'package:marvel_app/app/res/res.dart';
+
 import 'package:marvel_app/app/utils/app_router.dart';
 import 'package:marvel_app/app/utils/functions.dart';
 import 'package:marvel_app/presentaion/common/widgets/custom_dialog.dart';
+import 'package:marvel_app/presentaion/common/widgets/custom_profile_avatar.dart';
 import 'package:marvel_app/presentaion/main/more/widgets/list_tile_settings.dart';
+import 'package:marvel_app/services/auth/authentication.dart';
 
 class MorePage extends StatelessWidget {
   const MorePage({super.key});
@@ -23,12 +24,9 @@ class MorePage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
-                CircleAvatar(
-                  radius: 70,
-                  backgroundColor: Colors.red,
-                ),
-                Text('UIUXDIVYANSHU', style: AppStyles.textStyle20)
+              children: [
+                const CustomProfileAvatar(),
+                Text(getUsername(), style: AppStyles.textStyle20)
               ],
             ),
           ),
@@ -88,5 +86,15 @@ class MorePage extends StatelessWidget {
     await FirebaseAuth.instance.signOut();
     // ignore: use_build_context_synchronously
     Phoenix.rebirth(context);
+  }
+
+  String getUsername() {
+    final user = getUserProfile();
+    if (user != null) {
+      final res = user.email!.split('@');
+      return res[0];
+    } else {
+      return "";
+    }
   }
 }

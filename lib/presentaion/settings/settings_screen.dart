@@ -59,16 +59,15 @@ class SettingScreen extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: AppSizes.s24),
-                _check_listTile(
+                _checkListTile(
                     AppStrings.highDefinition, AppStrings.usesMoreData),
-                _check_listTile(
+                _checkListTile(
                     AppStrings.standardDefinition, AppStrings.usesLessData),
                 const SizedBox(height: AppSizes.s30),
                 const Divider(color: AppColor.white50, thickness: 1.0),
                 const Text(AppStrings.mobileStorage,
                     style: AppStyles.textstyle16),
                 const SizedBox(height: AppSizes.s10),
-                //todo line chart
               ],
             ),
           ),
@@ -77,7 +76,7 @@ class SettingScreen extends StatelessWidget {
     );
   }
 
-  Widget _check_listTile(String label, String sublabel) {
+  Widget _checkListTile(String label, String sublabel) {
     return Row(
       children: [
         Column(
@@ -85,9 +84,7 @@ class SettingScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(label, style: AppStyles.textstyle16),
-            SizedBox(
-              height: 2,
-            ),
+            const SizedBox(height: 2),
             Text(sublabel,
                 style: AppStyles.textstyle12.copyWith(color: AppColor.white30)),
           ],
@@ -98,7 +95,7 @@ class SettingScreen extends StatelessWidget {
           onChanged: (s) {},
           activeColor: AppColor.red,
           checkColor: AppColor.black,
-          side: BorderSide(color: AppColor.red),
+          side: const BorderSide(color: AppColor.red),
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
         ),
@@ -109,7 +106,7 @@ class SettingScreen extends StatelessWidget {
   Widget _switchTile(String label) {
     return Row(
       children: [
-        Text(label, style: AppStyles.textstyle16),
+        Text(label, style: AppStyles.textstyle16, maxLines: 1),
         const Spacer(),
         Switch(
           value: true,
