@@ -58,7 +58,6 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
       await signInWithGoogle();
       emit(AuthenticationSuccess());
     } catch (e) {
-      print(e.toString());
       emit(AuthenticationFailure(e.toString()));
     }
   }
@@ -69,7 +68,6 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
       await signInWithFacebook();
       emit(AuthenticationSuccess());
     } catch (e) {
-      print(e.toString());
       emit(AuthenticationFailure(e.toString()));
     }
   }
