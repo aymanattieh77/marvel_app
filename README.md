@@ -16,6 +16,23 @@
 - services
 - shared
 
+### features
+- -> splash screen
+- -> onBoarding screen
+- -> login
+- -> sign up
+- -> home screen
+- -> categoties
+- -> settings
+- -> detail page
+- -> more page
+- -> other page 
+- -> account page
+
+
+
+
+
 
 
 ### This project used 2 API 
