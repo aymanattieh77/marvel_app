@@ -27,8 +27,8 @@
 ### This project used 2 API 
 * marvel API
 * mcuapi.herokuapp API
-
-
+* 
+### This project Firebase Auth 
 
 ### features
 - -> splash screen
