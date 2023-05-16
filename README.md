@@ -16,6 +16,20 @@
 - services
 - shared
 
+
+
+
+
+
+
+
+
+### This project used 2 API 
+* marvel API
+* mcuapi.herokuapp API
+
+
+
 ### features
 - -> splash screen
 - -> onBoarding screen
@@ -30,14 +44,24 @@
 - -> account page
 
 
+### screens
+
+**Splash**
+![splash](https://github.com/aymanattieh77/marvel_app/assets/87063387/5c4ac117-4fb1-4bc1-8e6c-b1dda37c9936)
 
 
 
 
 
-### This project used 2 API 
-* marvel API
-* mcuapi.herokuapp API
+
+
+
+
+
+
+
+
+
 
 ### packages
 - flutter_bloc
