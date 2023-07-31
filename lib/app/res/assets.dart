@@ -1,6 +1,6 @@
 const imagePath = 'assets/images/';
 const iconPath = 'assets/icons/';
-const avatarPath = 'assets/icons/avatars/';
+const avatarPath = 'assets/images/avatars/';
 const jsonsPath = 'assets/jsons/';
 
 abstract class AssetsImagePath {
@@ -17,6 +17,16 @@ abstract class AssetsImagePath {
   static const String castTest = '${imagePath}cast_test.png';
   static const String trTest = '${imagePath}tr_test.jpg';
   static const String downTest = '${imagePath}down_test.png';
+  //
+  // avatars icons
+  static const String avatar1 = '${avatarPath}ellipse_13.png';
+  static const String avatar2 = '${avatarPath}ellipse_14.png';
+  static const String avatar3 = '${avatarPath}ellipse_15.png';
+  static const String avatar4 = '${avatarPath}ellipse_16.png';
+  static const String avatar5 = '${avatarPath}ellipse_17.png';
+  static const String avatar6 = '${avatarPath}ellipse_18.png';
+  static const String avatar7 = '${avatarPath}ellipse_19.png';
+  static const String avatar8 = '${avatarPath}ellipse_20.png';
 }
 
 abstract class AssetsIconPath {
@@ -28,21 +38,13 @@ abstract class AssetsIconPath {
   static const String elementPlus = '${iconPath}element_plus.svg';
   static const String frame = '${iconPath}frame.svg';
   static const String home2 = '${iconPath}home2.svg';
+  static const String porfileRing = '${iconPath}profile_ring.svg';
   static const String home = '${iconPath}home.svg';
   static const String marvelLogo = '${iconPath}marvel_logo.svg';
   static const String note = '${iconPath}note.svg';
   static const String mastercard = '${iconPath}mastercard.svg';
   static const String tickCircle = '${iconPath}tick_circle.svg';
   static const String arrowRight = '${iconPath}right_arrow.svg';
-  // avatars icons
-  static const String avatar1 = '${avatarPath}avatar1.svg';
-  static const String avatar2 = '${avatarPath}avatar2.svg';
-  static const String avatar3 = '${avatarPath}avatar3.svg';
-  static const String avatar4 = '${avatarPath}avatar4.svg';
-  static const String avatar5 = '${avatarPath}avatar5.svg';
-  static const String avatar6 = '${avatarPath}avatar6.svg';
-  static const String avatar7 = '${avatarPath}avatar7.svg';
-  static const String avatar8 = '${avatarPath}avatar8.svg';
 }
 
 abstract class AssetsJsonPath {}

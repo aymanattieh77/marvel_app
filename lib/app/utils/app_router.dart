@@ -11,7 +11,7 @@ import 'package:marvel_app/presentaion/on_borading/on_borading_screen.dart';
 import 'package:marvel_app/presentaion/sign_up_login/pages/login_signup_page.dart';
 
 import 'package:marvel_app/presentaion/splash/splash_screen.dart';
-import 'package:marvel_app/shared/cubits/app_cubit/splash_cubit.dart';
+import 'package:marvel_app/shared/cubits/splash_cubit/splash_cubit.dart';
 import 'package:marvel_app/shared/cubits/authentication_cubit/authentication_cubit.dart';
 import 'package:marvel_app/shared/cubits/home_cubit/home_cubit.dart';
 import 'package:marvel_app/shared/cubits/marvel_cubit/marvel_cubit.dart';
@@ -95,6 +95,7 @@ class AppRouter {
     final args = settings.arguments as DetailPageArguments;
 
     return MaterialPageRoute(
+      fullscreenDialog: true,
       builder: (ctx) => BlocProvider.value(
         value: args.homeCubit,
         child: DetailPage(

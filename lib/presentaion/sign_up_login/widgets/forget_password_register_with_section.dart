@@ -57,7 +57,7 @@ class ForgetPasswordRegisterWithSection extends StatelessWidget {
               GestureDetector(
                   onTap: () {
                     BlocProvider.of<AuthenticationCubit>(context)
-                        .registerWithGoogle();
+                        .registerWithGoogle(context);
                   },
                   child: SvgPicture.asset(AssetsIconPath.google))
             ],

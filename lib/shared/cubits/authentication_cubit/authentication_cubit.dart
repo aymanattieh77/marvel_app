@@ -1,5 +1,4 @@
 import 'package:equatable/equatable.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -53,13 +52,14 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
     Navigator.of(context).pushReplacementNamed(AppRouter.home);
   }
 
-  registerWithGoogle() async {
+  registerWithGoogle(BuildContext context) async {
     emit(AuthenticationLoading());
     try {
       await signInWithGoogle();
       emit(AuthenticationSuccess());
+      // ignore: use_build_context_synchronously
+      navigatingToHome(context);
     } catch (e) {
-      print(e.toString());
       emit(AuthenticationFailure(e.toString()));
     }
   }
@@ -70,7 +70,6 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
       await signInWithFacebook();
       emit(AuthenticationSuccess());
     } catch (e) {
-      print(e.toString());
       emit(AuthenticationFailure(e.toString()));
     }
   }

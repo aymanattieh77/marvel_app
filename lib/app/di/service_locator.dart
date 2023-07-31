@@ -9,7 +9,7 @@ import 'package:marvel_app/data/repository/marvel_repository_impl.dart';
 import 'package:marvel_app/data/repository/movie_series_repo_impl.dart';
 import 'package:marvel_app/domain/repository/marvel_repository.dart';
 import 'package:marvel_app/domain/repository/movie_series_repository.dart';
-import 'package:marvel_app/shared/cubits/app_cubit/splash_cubit.dart';
+import 'package:marvel_app/shared/cubits/splash_cubit/splash_cubit.dart';
 import 'package:marvel_app/shared/cubits/home_cubit/home_cubit.dart';
 import 'package:marvel_app/shared/cubits/marvel_cubit/marvel_cubit.dart';
 import 'package:shared_preferences/shared_preferences.dart';

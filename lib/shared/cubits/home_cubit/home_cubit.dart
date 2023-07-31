@@ -105,8 +105,10 @@ class HomeCubit extends Cubit<HomeState> {
 class DetailPageArguments {
   final HomeCubit homeCubit;
   final MovieSeriesModel model;
+  final String heroTag;
   DetailPageArguments({
     required this.homeCubit,
     required this.model,
+    required this.heroTag,
   });
 }

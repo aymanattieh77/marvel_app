@@ -1,7 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:marvel_app/app/res/assets.dart';
 import 'package:marvel_app/domain/models/move_series/movie_series_model.dart';
 import 'package:marvel_app/shared/cubits/home_cubit/home_cubit.dart';
 
@@ -25,17 +24,17 @@ class TrendingTodayListView extends StatelessWidget {
         itemBuilder: (context, index) {
           return GestureDetector(
             onTap: () {
-              Navigator.of(context).pushNamed(AppRouter.moviePage,
-                  arguments: DetailPageArguments(
-                      homeCubit: context.read<HomeCubit>(),
-                      model: items[index]));
+              _goToDetailPage(context, index);
             },
             child: AspectRatio(
               aspectRatio: 2 / 3,
               child: SizedBox(
-                child: CachedNetworkImage(
-                  imageUrl: items[index].coverUrl,
-                  fit: BoxFit.fill,
+                child: Hero(
+                  tag: "${items[index].coverUrl}${items[index].id}",
+                  child: CachedNetworkImage(
+                    imageUrl: items[index].coverUrl,
+                    fit: BoxFit.fill,
+                  ),
                 ),
               ),
             ),
@@ -43,6 +42,16 @@ class TrendingTodayListView extends StatelessWidget {
         },
         separatorBuilder: (context, index) => const SizedBox(width: 12),
       ),
+    );
+  }
+
+  void _goToDetailPage(BuildContext context, int index) {
+    Navigator.of(context).pushNamed(
+      AppRouter.moviePage,
+      arguments: DetailPageArguments(
+          homeCubit: context.read<HomeCubit>(),
+          model: items[index],
+          heroTag: "${items[index].coverUrl}${items[index].id}"),
     );
   }
 }

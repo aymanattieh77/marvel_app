@@ -6,7 +6,7 @@ import 'package:marvel_app/app/res/strings.dart';
 import 'package:marvel_app/app/res/values.dart';
 import 'package:marvel_app/app/utils/constants.dart';
 import 'package:marvel_app/presentaion/common/widgets/custom_elevated_button.dart';
-import 'package:marvel_app/presentaion/on_borading/on_Boarding_dummy.dart';
+import 'package:marvel_app/presentaion/on_borading/on_boarding_dummy.dart';
 import 'package:marvel_app/presentaion/on_borading/onboarding_stack_widget.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 

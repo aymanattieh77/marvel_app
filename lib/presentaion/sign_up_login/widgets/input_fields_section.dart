@@ -50,7 +50,7 @@ class _InputFieldsSectionState extends State<InputFieldsSection> {
           BlocBuilder<AuthenticationCubit, AuthenticationState>(
             builder: (context, state) {
               if (state is AuthenticationLoading) {
-                return const CircularProgressIndicator();
+                return customCircluarIndicator();
               }
               return CustomElevatedButton(
                 color: AppColor.black,
@@ -67,10 +67,13 @@ class _InputFieldsSectionState extends State<InputFieldsSection> {
   }
 
   _vaildation(BuildContext context) {
+    // validation for authtencation
     if (globalKey.currentState!.validate()) {
       globalKey.currentState!.save();
+      // hide keypoard
+      FocusScope.of(context).unfocus();
       final cubit = BlocProvider.of<AuthenticationCubit>(context);
-      cubit.signUpOrLogin(context, email.text, password.text);
+      cubit.signUpOrLogin(context, email.text.trim(), password.text.trim());
     }
   }
 }

@@ -56,3 +56,11 @@ String? passwordVaildation(String password) {
     return null;
   }
 }
+
+Widget customCircluarIndicator() {
+  return const Center(
+    child: CircularProgressIndicator(
+      color: AppColor.red,
+    ),
+  );
+}

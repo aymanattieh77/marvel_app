@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:marvel_app/app/res/themes.dart';
 import 'package:marvel_app/app/utils/app_router.dart';
 
