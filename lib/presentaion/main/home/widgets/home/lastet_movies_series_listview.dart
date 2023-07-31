@@ -15,20 +15,10 @@ class LastetMoviesSeriesListView extends StatelessWidget {
   final List<MovieSeriesModel> items;
   @override
   Widget build(BuildContext context) {
-    final cardItems = List.generate(
-      items.length,
-      (index) => LastetMovieSeriesImage(
-        imageUrl: items[index].coverUrl,
-        onTap: () {
-          _onTap(context, index);
-        },
-      ),
-    );
-
     return SizedBox(
-      height: MediaQuery.of(context).size.height * 0.3,
+      height: MediaQuery.sizeOf(context).height * 0.3,
       child: CarouselSlider(
-        items: cardItems,
+        items: getMoviesSeriesCardList(context),
         options: CarouselOptions(
           initialPage: 0,
           autoPlay: true,
@@ -39,9 +29,27 @@ class LastetMoviesSeriesListView extends StatelessWidget {
     );
   }
 
-  _onTap(BuildContext context, int index) {
-    Navigator.of(context).pushNamed(AppRouter.moviePage,
-        arguments: DetailPageArguments(
-            homeCubit: context.read<HomeCubit>(), model: items[index]));
+  List<Widget> getMoviesSeriesCardList(BuildContext context) {
+    return List.generate(
+      items.length,
+      (index) => LastetMovieSeriesImage(
+        imageUrl: items[index].coverUrl,
+        heroTag: "${items[index].title}${items[index].coverUrl}",
+        onTap: () {
+          _goToDetailPage(context, index);
+        },
+      ),
+    );
+  }
+
+  _goToDetailPage(BuildContext context, int index) {
+    Navigator.of(context).pushNamed(
+      AppRouter.moviePage,
+      arguments: DetailPageArguments(
+        homeCubit: context.read<HomeCubit>(),
+        model: items[index],
+        heroTag: "${items[index].title}${items[index].coverUrl}",
+      ),
+    );
   }
 }

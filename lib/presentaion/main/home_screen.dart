@@ -38,7 +38,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 IndexedStack(index: cubit.currnetIndex, children: cubit.pages),
           ),
           floatingActionButton: CustomMarvelNavigationBar(
-              currentIndex: cubit.currnetIndex, onTap: cubit.changeIndex),
+            currentIndex: cubit.currnetIndex,
+            onTap: cubit.changeIndex,
+          ),
           floatingActionButtonLocation:
               FloatingActionButtonLocation.centerDocked,
         );

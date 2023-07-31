@@ -24,7 +24,6 @@ class LastetMoviesSection extends StatelessWidget {
           child: Text(AppStrings.lastetMovies, style: AppStyles.textstyle24),
         ),
         const SizedBox(height: AppSizes.s10),
-        // lastet movies section
         BlocBuilder<HomeCubit, HomeState>(
           builder: (context, state) {
             if (state is MovieSeriesLoading) {
@@ -39,7 +38,7 @@ class LastetMoviesSection extends StatelessWidget {
               final movies = BlocProvider.of<HomeCubit>(context).movies;
               return LastetMoviesSeriesListView(items: movies);
             } else {
-              return Container(height: 20, color: Colors.yellowAccent);
+              return Container();
             }
           },
         ),

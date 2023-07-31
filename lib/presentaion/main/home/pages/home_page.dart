@@ -17,7 +17,7 @@ class HomePage extends StatelessWidget {
       physics: BouncingScrollPhysics(),
       slivers: [
         SliverToBoxAdapter(
-          child: CustomHomeAppBar(), // home appbar
+          child: CustomHomeAppBar(),
         ),
         SliverList(
           delegate: SliverChildListDelegate.fixed(

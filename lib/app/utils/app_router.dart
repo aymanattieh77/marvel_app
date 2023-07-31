@@ -95,6 +95,7 @@ class AppRouter {
     final args = settings.arguments as DetailPageArguments;
 
     return MaterialPageRoute(
+      fullscreenDialog: true,
       builder: (ctx) => BlocProvider.value(
         value: args.homeCubit,
         child: DetailPage(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jiffy/jiffy.dart';
 
 import 'package:marvel_app/app/res/colors.dart';
 import 'package:marvel_app/app/res/styles.dart';
@@ -10,11 +11,11 @@ class MoreMovieSeriesCard extends StatelessWidget {
     super.key,
     required this.imageUrl,
     required this.title,
-    required this.releaseYear,
+    required this.releaseDate,
   });
   final String imageUrl;
   final String title;
-  final String releaseYear;
+  final String releaseDate;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -23,10 +24,13 @@ class MoreMovieSeriesCard extends StatelessWidget {
         children: [
           AspectRatio(
             aspectRatio: 2 / 3,
-            child: CachedNetworkImage(
-              imageUrl: imageUrl,
-              fit: BoxFit.cover,
-              alignment: Alignment.topCenter,
+            child: Hero(
+              tag: "$imageUrl$releaseDate",
+              child: CachedNetworkImage(
+                imageUrl: imageUrl,
+                fit: BoxFit.cover,
+                alignment: Alignment.topCenter,
+              ),
             ),
           ),
           const SizedBox(width: AppSizes.s20),
@@ -36,9 +40,11 @@ class MoreMovieSeriesCard extends StatelessWidget {
               children: [
                 Text(title, style: AppStyles.textStyle20, maxLines: 2),
                 const SizedBox(height: AppSizes.s10),
-                Text(releaseYear,
-                    style: AppStyles.textstyle14
-                        .copyWith(color: AppColor.white30)),
+                Text(
+                  Jiffy.parse(releaseDate).year.toString(),
+                  style:
+                      AppStyles.textstyle14.copyWith(color: AppColor.white30),
+                ),
               ],
             ),
           ),

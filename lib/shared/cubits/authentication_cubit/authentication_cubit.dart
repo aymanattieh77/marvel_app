@@ -52,11 +52,13 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
     Navigator.of(context).pushReplacementNamed(AppRouter.home);
   }
 
-  registerWithGoogle() async {
+  registerWithGoogle(BuildContext context) async {
     emit(AuthenticationLoading());
     try {
       await signInWithGoogle();
       emit(AuthenticationSuccess());
+      // ignore: use_build_context_synchronously
+      navigatingToHome(context);
     } catch (e) {
       emit(AuthenticationFailure(e.toString()));
     }

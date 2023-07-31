@@ -27,15 +27,26 @@ class CategoriesMovieSeriesGridview extends StatelessWidget {
         itemBuilder: (context, index) {
           return GestureDetector(
             onTap: () {
-              Navigator.of(context).pushNamed(AppRouter.moviePage,
-                  arguments: DetailPageArguments(
-                      homeCubit: context.read<HomeCubit>(),
-                      model: items[index]));
+              _goToDetailPage(context, index);
             },
-            child: CachedNetworkImage(
-                imageUrl: items[index].coverUrl, fit: BoxFit.cover),
+            child: Hero(
+              tag: "_hero_image${items[index].coverUrl}",
+              child: CachedNetworkImage(
+                  imageUrl: items[index].coverUrl, fit: BoxFit.cover),
+            ),
           );
         },
+      ),
+    );
+  }
+
+  _goToDetailPage(BuildContext context, int index) {
+    Navigator.of(context).pushNamed(
+      AppRouter.moviePage,
+      arguments: DetailPageArguments(
+        homeCubit: context.read<HomeCubit>(),
+        model: items[index],
+        heroTag: "_hero_image${items[index].coverUrl}",
       ),
     );
   }

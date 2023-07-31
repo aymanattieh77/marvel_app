@@ -10,9 +10,11 @@ class CardDetailsSection extends StatelessWidget {
     super.key,
     required this.imageUrl,
     required this.title,
+    required this.heroTag,
   });
   final String imageUrl;
   final String title;
+  final String heroTag;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -21,27 +23,28 @@ class CardDetailsSection extends StatelessWidget {
       child: Stack(
         alignment: Alignment.bottomCenter,
         children: [
-          Container(
-              width: double.infinity,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                    image: CachedNetworkImageProvider(imageUrl),
-                    fit: BoxFit.fill,
-                    alignment: Alignment.topCenter),
+          SizedBox(
+            width: double.infinity,
+            child: Hero(
+              tag: heroTag,
+              child: Image(
+                image: CachedNetworkImageProvider(imageUrl),
+                alignment: Alignment.topCenter,
+                fit: BoxFit.cover,
               ),
-              child: Container(
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: List.generate(
-                            10,
-                            (index) =>
-                                AppColor.black.withOpacity((index + 1) / 10))
-                        .toList(),
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                  ),
-                ),
-              )),
+            ),
+          ),
+          Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: List.generate(10,
+                        (index) => AppColor.black.withOpacity((index + 1) / 10))
+                    .toList(),
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+              ),
+            ),
+          ),
           Positioned(
             top: 56,
             left: 60,

@@ -5,6 +5,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:marvel_app/app/res/strings.dart';
 
 import 'package:marvel_app/app/res/values.dart';
+import 'package:marvel_app/app/utils/functions.dart';
+import 'package:marvel_app/presentaion/common/state_renderer/custom_error_widget.dart';
 import 'package:marvel_app/presentaion/common/widgets/custom_animated_toggle.dart';
 import 'package:marvel_app/shared/cubits/home_cubit/home_cubit.dart';
 
@@ -29,17 +31,18 @@ class CategoriesPage extends StatelessWidget {
             if (state is MovieSeriesLoading) {
               return const CircularProgressIndicator();
             } else if (state is MovieSeriesFailure) {
-              return Container(height: 20, color: Colors.red);
+              WidgetsBinding.instance.addPostFrameCallback((_) {
+                showCustomDialog(
+                    context, CustomErrorWidget(message: state.message));
+              });
+              return Container();
             } else if (state is MovieSeriesLoaded) {
               final items =
                   BlocProvider.of<HomeCubit>(context).getMovieOrSeries();
 
               return CategoriesMovieSeriesGridview(items: items);
             } else {
-              return Container(
-                height: 20,
-                color: Colors.yellowAccent,
-              );
+              return Container();
             }
           },
         ),

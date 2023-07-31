@@ -35,8 +35,10 @@ class _DetailPageState extends State<DetailPage> {
             child: Column(
               children: [
                 CardDetailsSection(
-                    imageUrl: widget.args!.model.coverUrl,
-                    title: widget.args!.model.title),
+                  imageUrl: widget.args!.model.coverUrl,
+                  title: widget.args!.model.title,
+                  heroTag: widget.args!.heroTag,
+                ),
                 const SizedBox(height: AppSizes.s20),
                 DownloadWatchListSection(model: widget.args!.model),
                 const SizedBox(height: AppSizes.s16),
@@ -64,8 +66,6 @@ class _DetailPageState extends State<DetailPage> {
                     labelStyle: AppStyles.textstyle16,
                     unselectedLabelStyle: AppStyles.textstyle16,
                     unselectedLabelColor: AppColor.white,
-                    // dividerColor: Colors.grey,
-
                     tabs: const [
                       Tab(
                         text: AppStrings.trailer,
@@ -80,7 +80,7 @@ class _DetailPageState extends State<DetailPage> {
                   ),
                 ),
                 const SizedBox(height: AppSizes.s16),
-                _tabManager(currnetTab),
+                _tabManagerView(currnetTab),
                 const SizedBox(height: 150),
               ],
             ),
@@ -90,7 +90,7 @@ class _DetailPageState extends State<DetailPage> {
     );
   }
 
-  Widget _tabManager(int tab) {
+  Widget _tabManagerView(int tab) {
     if (tab == 1) {
       return const CastMovieSeriesListview();
     } else if (tab == 2) {

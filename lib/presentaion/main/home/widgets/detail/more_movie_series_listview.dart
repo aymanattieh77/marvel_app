@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:jiffy/jiffy.dart';
+
 import 'package:marvel_app/app/res/values.dart';
+import 'package:marvel_app/domain/models/move_series/movie_series_model.dart';
 import 'package:marvel_app/presentaion/main/home/widgets/detail/more_movie_series_card.dart';
 import 'package:marvel_app/shared/cubits/home_cubit/home_cubit.dart';
 
-import '../../../../../app/utils/app_router.dart';
+import 'package:marvel_app/app/utils/app_router.dart';
 
 class MoreMovieSeriesListview extends StatelessWidget {
   const MoreMovieSeriesListview({super.key});
@@ -32,35 +33,42 @@ class MoreMovieSeriesListview extends StatelessWidget {
             itemBuilder: (context, index) {
               return GestureDetector(
                 onTap: () {
-                  Navigator.of(context).pushReplacementNamed(
-                      AppRouter.moviePage,
-                      arguments: DetailPageArguments(
-                          homeCubit: context.read<HomeCubit>(),
-                          model: moreMovies[index]));
+                  _goToDetailPage(context, moreMovies, index);
                 },
                 child: MoreMovieSeriesCard(
                   imageUrl: moreMovies[index].coverUrl,
                   title: moreMovies[index].title,
-                  releaseYear: Jiffy.parse(moreMovies[index].releaseDate)
-                      .year
-                      .toString(),
+                  releaseDate: moreMovies[index].releaseDate,
                 ),
               );
             },
             separatorBuilder: (context, index) {
-              return Container(
-                margin: const EdgeInsets.symmetric(vertical: AppMargin.m5),
-                child: const Divider(),
-              );
+              return _divider();
             },
           );
         } else {
-          return Container(
-            height: 20,
-            color: Colors.yellowAccent,
-          );
+          return Container();
         }
       },
+    );
+  }
+
+  void _goToDetailPage(
+      BuildContext context, List<MovieSeriesModel> movies, int index) {
+    Navigator.of(context).pushReplacementNamed(
+      AppRouter.moviePage,
+      arguments: DetailPageArguments(
+        homeCubit: context.read<HomeCubit>(),
+        model: movies[index],
+        heroTag: "${movies[index].coverUrl}${movies[index].releaseDate}",
+      ),
+    );
+  }
+
+  Widget _divider() {
+    return Container(
+      margin: const EdgeInsets.symmetric(vertical: AppMargin.m5),
+      child: const Divider(),
     );
   }
 }
